@@ -12,10 +12,6 @@ public abstract class Spielobjekt {
         this.breite = breite;
     }
 
-    public Spielobjekt(int posX, int posY) {
-        this.posX = posX;
-        this.posY = posY;
-    }
 
     public void setPosX(int posX) {
         this.posX = posX;

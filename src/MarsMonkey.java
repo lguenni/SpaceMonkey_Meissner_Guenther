@@ -4,6 +4,9 @@ public class MarsMonkey extends Monkey{
         super(posX, posY);
     }
 
+    /**
+     * Überschreibt die Methode "zeichne" und zeichnet einen MarsMonkey
+     */
     @Override
     public void zeichne() {
         //Zeichnet Affe

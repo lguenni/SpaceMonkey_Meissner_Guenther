@@ -6,17 +6,28 @@ public class Apollo404 extends Spielobjekt {
         super(posX, posY, hoehe, breite);
     }
 
+    /**
+     * Gibt Anzahl der Monition zurück
+     **/
     public int getMunition() {
         return munition;
     }
 
+    /**
+     * Setzt die Anzahl Monition
+     * @param munition Anzahl der Monition
+     */
     public void setMunition(int munition) {
         this.munition = munition;
     }
 
+    /**
+     * Bewegt Raumschiff mit Pfeiltaste
+     *  */
     public void bewege(){
         //Mit Pfeiltasten eingabe
     }
 
-    public void zeichne(){};
+    /** Zeichnet das Raumschiff */
+    public void zeichne(){}
 }

@@ -15,23 +15,43 @@ public class Spielwelt {
         monkeys = new ArrayList<>();
     }
 
+    /**
+     * Ruft die bewege Methode aller Affen in der Liste auf
+     */
     public void bewegeMonster(){
         for (Monkey monkey: monkeys) {
             monkey.bewege();
         }
     }
 
+    /**
+     * Ruft die bewege Methode der Figur auf
+     */
     public void bewegeFigur(){
         figur.bewege();
     }
 
-    public void loescheMonster(){};
+    /**
+     * Löscht den übergebenen Affe vom Spielfeld
+     * @param monkey Zu löschender Affe
+     */
 
-    public void zeicheAlles(){};
+    public void loescheMonster(Monkey monkey){}
 
-    public void zeicheSpielzustand(){};
+    /**
+     * Zeichnet alle Elemente auf dem Spielfeld
+     */
+    public void zeicheAlles(){}
 
-    public void pruefeTreffer(){};
+    /**
+     * Zeichnet den aktuellen Spielzustand
+     */
+    public void zeicheSpielzustand(){}
+
+    /**
+     * Prüft ob der aktuelle Schuss ein Treffer ist
+     */
+    public void pruefeTreffer(){}
 
 
 }

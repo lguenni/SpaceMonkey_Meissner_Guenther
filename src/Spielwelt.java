@@ -1,3 +1,5 @@
+import processing.core.PApplet;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,11 +9,9 @@ public class Spielwelt {
     private int hoehe;
     private List<Monkey> monkeys;
     private List<Schuss> schuesse;
-    Apollo404 figur;
+    Apollo404 raumschiff;
 
-    public Spielwelt(int breite, int hoehe) {
-        this.breite = breite;
-        this.hoehe = hoehe;
+    public Spielwelt() {
 
         monkeys = new ArrayList<>();
         schuesse = new ArrayList<>();
@@ -42,8 +42,8 @@ public class Spielwelt {
     /**
      * Ruft die bewege Methode der Figur auf
      */
-    public void bewegeFigur(){
-        figur.bewege();
+    public void bewegeRaumschiff(){
+        raumschiff.bewege();
     }
 
     /**
@@ -56,13 +56,14 @@ public class Spielwelt {
     /**
      * Zeichnet alle Elemente auf dem Spielfeld
      */
-    public void zeicheAlles(){
+    public void zeicheAlles(PApplet app){
         for (Monkey monkey: monkeys) {
-            monkey.zeichne();
+            monkey.zeichne(app);
         }
         for (Schuss schuss: schuesse) {
-            schuss.zeichne();
+            schuss.zeichne(app);
         }
+        raumschiff.zeichne(app);
     }
     /**
      * Zeichnet den aktuellen Spielzustand

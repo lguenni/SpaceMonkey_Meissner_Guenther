@@ -1,3 +1,5 @@
+import processing.core.PApplet;
+
 public class StarMonkey extends Monkey{
 
     public StarMonkey(int posX, int posY) {
@@ -5,8 +7,11 @@ public class StarMonkey extends Monkey{
     }
 
     @Override
-    public void zeichne() {
-        //Zeichnet Affe
+    public void zeichne(PApplet app) {
+        app.pushStyle();
+        app.fill(230, 200, 15);
+        app.rect(posX, posY, breite, hoehe);
+        app.popStyle();
     }
 
 

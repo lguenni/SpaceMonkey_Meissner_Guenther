@@ -1,3 +1,5 @@
+import processing.core.PApplet;
+
 public class Schuss extends Spielobjekt{
 
     public Schuss(int posX, int posY) {
@@ -14,7 +16,7 @@ public class Schuss extends Spielobjekt{
         posY = posY + Geschwindigkeit;
     }
 
-    public void zeichne() {
+    public void zeichne(PApplet app) {
 
     }
 }

@@ -18,7 +18,7 @@ public class Spielwelterzeuger {
         spielwelt.addMonkey(new StarMonkey(50,250));
         spielwelt.addMonkey(new StarMonkey(100, 250));
 
-        spielwelt.figur = new Apollo404(20, 20);
+        spielwelt.raumschiff = new Apollo404(250, 500);
     }
 
     /**

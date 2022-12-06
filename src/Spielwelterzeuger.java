@@ -1,5 +1,7 @@
 public class Spielwelterzeuger {
+
     private Spielwelt spielwelt;
+    private Spielzustand zustand;
 
     public Spielwelterzeuger(Spielwelt spielwelt) {
         this.spielwelt = spielwelt;
@@ -19,4 +21,11 @@ public class Spielwelterzeuger {
 
     }
 
+    public Spielzustand getZustand() {
+        return zustand;
+    }
+
+    public void setZustand(Spielzustand zustand) {
+        this.zustand = zustand;
+    }
 }

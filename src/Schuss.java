@@ -10,6 +10,11 @@ public class Schuss extends Spielobjekt{
      * Bewegt den Schuss mit der Geschwindigkeit nach oben
      */
     public void bewege(){
+
         posY = posY + Geschwindigkeit;
+    }
+
+    public void zeichne() {
+
     }
 }

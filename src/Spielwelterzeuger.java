@@ -11,7 +11,14 @@ public class Spielwelterzeuger {
      * Erzeugt das Spielfeld neu und startet das Spiel
      */
     public void initSpielwelt(){
+        spielwelt.addMonkey(new MarsMonkey(50, 50));
+        spielwelt.addMonkey(new MarsMonkey(100, 50));
+        spielwelt.addMonkey(new MoonMonkey(50, 150));
+        spielwelt.addMonkey(new MoonMonkey(100, 150));
+        spielwelt.addMonkey(new StarMonkey(50,250));
+        spielwelt.addMonkey(new StarMonkey(100, 250));
 
+        spielwelt.raumschiff = new Apollo404(250, 500);
     }
 
     /**

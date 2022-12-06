@@ -1,9 +1,12 @@
+import processing.core.PApplet;
+
 public class Apollo404 extends Spielobjekt {
 
     private int munition;
 
-    public Apollo404(int posX, int posY, int hoehe, int breite) {
-        super(posX, posY, hoehe, breite);
+    public Apollo404(int posX, int posY) {
+
+        super(posX, posY, 20, 20);
     }
 
     /**
@@ -29,5 +32,10 @@ public class Apollo404 extends Spielobjekt {
     }
 
     /** Zeichnet das Raumschiff */
-    public void zeichne(){}
+    public void zeichne(PApplet app){
+        app.pushStyle();
+        app.fill(230, 15, 15);
+        app.triangle(posX, posY, posX - 15, posY + 15, posX + 15, posY + 15);
+        app.popStyle();
+    }
 }

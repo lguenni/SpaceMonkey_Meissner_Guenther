@@ -1,3 +1,5 @@
+import processing.core.PApplet;
+
 public abstract class Monkey extends Spielobjekt {
     public Monkey(int posX, int posY) {
         super(posX, posY, 10, 10);
@@ -13,5 +15,5 @@ public abstract class Monkey extends Spielobjekt {
     /**
      * Abstrakte Methode zum Aufrufen der zeichne Methoden
      */
-    public abstract void zeichne();
+    public abstract void zeichne(PApplet app);
 }

@@ -35,7 +35,7 @@ public class Apollo404 extends Spielobjekt {
     public void zeichne(PApplet app){
         app.pushStyle();
         app.fill(230, 15, 15);
-        app.triangle(posX, posY, posX - 15, posY + 15, posX + 15, posY + 15);
+        app.triangle(posX, posY, posX - 16, posY + 16, posX + 16, posY + 16);
         app.popStyle();
     }
 }

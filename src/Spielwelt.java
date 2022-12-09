@@ -40,7 +40,6 @@ public class Spielwelt {
         for (Schuss schuss: schuesse) {
             schuss.bewege();
         }
-        raumschiff.bewege();//brauchen wir eigentlich gar nicht mehr
     }
 
     /**

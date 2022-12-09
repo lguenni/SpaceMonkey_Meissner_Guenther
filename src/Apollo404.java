@@ -19,6 +19,8 @@ public class Apollo404 extends Spielobjekt {
         app.popStyle();
     }
 
+ /** Bewegt das Raumschiff nach links
+  * Stoppt das Raumschiff am Leinwandrand */
     public void bewegeNachRechts() {
 
         if (posX + breiteDreick >= 600) {
@@ -28,6 +30,8 @@ public class Apollo404 extends Spielobjekt {
         }
     }
 
+    /** Bewegt das Raumschiff nach links
+     * Stoppt das Raumschiff am Leinwandrand */
     public void bewegeNachLinks() {
 
         if (posX - breiteDreick <= 0) {

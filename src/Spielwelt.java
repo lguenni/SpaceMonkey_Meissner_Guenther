@@ -73,4 +73,11 @@ public class Spielwelt {
      */
     public void pruefeTreffer(){}
 
+    public void bewegeRaumschiffRechts() {
+        raumschiff.bewegeNachRechts();
+    }
+
+    public void bewegeRaumschiffLinks() {
+        raumschiff.bewegeNachLinks();
+    }
 }

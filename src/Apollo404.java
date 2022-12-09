@@ -44,6 +44,6 @@ public class Apollo404 extends Spielobjekt {
     }
 
     public void bewegeNachLinks() {
-        posY -= 1;
+        posX -= 1;
     }
 }

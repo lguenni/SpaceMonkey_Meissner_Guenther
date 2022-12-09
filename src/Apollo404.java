@@ -3,6 +3,7 @@ import processing.core.PApplet;
 public class Apollo404 extends Spielobjekt {
 
     private int munition;
+    private int breiteDreick = 16;
 
     public Apollo404(int posX, int posY) {
 
@@ -35,15 +36,25 @@ public class Apollo404 extends Spielobjekt {
     public void zeichne(PApplet app){
         app.pushStyle();
         app.fill(230, 15, 15);
-        app.triangle(posX, posY, posX - 16, posY + 16, posX + 16, posY + 16);
+        app.triangle(posX, posY, posX +breiteDreick, posY + breiteDreick, posX - breiteDreick, posY + breiteDreick);
         app.popStyle();
     }
 
     public void bewegeNachRechts() {
-        posX += 1;
+
+        if (posX + breiteDreick >= 600) {
+            posX +=0;   //bewegt sich nicht weiter
+        } else {
+            posX += 2;
+        }
     }
 
     public void bewegeNachLinks() {
-        posX -= 1;
+
+        if (posX - breiteDreick <= 0) {
+            posX +=0;   //bewegt sich nicht weiter
+        } else {
+            posX -= 2;
+        }
     }
 }

@@ -1,5 +1,7 @@
 import processing.core.PApplet;
 
+import java.awt.image.renderable.RenderableImage;
+
 public class Spiel extends PApplet {
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
@@ -25,11 +27,11 @@ public class Spiel extends PApplet {
 
     private void verarbeiteEingabe() {
         if (keyPressed) {
-            if (key == 'd' || keyCode == UP) {
+            if (key == 'd' || keyCode == RIGHT) {
                 welt.bewegeRaumschiffRechts();
             }
 
-            if (key == 'a' || keyCode == DOWN) {
+            if (key == 'a' || keyCode == LEFT) {
                 welt.bewegeRaumschiffLinks();
             }
         }

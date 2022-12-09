@@ -13,4 +13,13 @@ public class MoonMonkey extends Monkey{
         app.rect(posX, posY, breite, hoehe);
         app.popStyle();
     }
+
+    @Override
+    public void bewege(){
+        posX = posX - 1;
+
+        if(this.getPosX() <= 0){
+            this.setPosX(600 - this.getBreite());
+        }
+    }
 }

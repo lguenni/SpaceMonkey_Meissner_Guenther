@@ -18,6 +18,12 @@ public class Spiel extends PApplet {
 
     @Override
     public void draw() {
+        verarbeiteEingabe();
+        welt.bewege();
         welt.zeicheAlles(this);
+    }
+
+    private void verarbeiteEingabe(){
+
     }
 }

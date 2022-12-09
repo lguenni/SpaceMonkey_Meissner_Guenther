@@ -33,17 +33,14 @@ public class Spielwelt {
     /**
      * Ruft die bewege Methode aller Affen in der Liste auf
      */
-    public void bewegeAffen(){
+    public void bewege(){
         for (Monkey monkey: monkeys) {
             monkey.bewege();
         }
-    }
-
-    /**
-     * Ruft die bewege Methode der Figur auf
-     */
-    public void bewegeRaumschiff(){
-        raumschiff.bewege();
+        for (Schuss schuss: schuesse) {
+            schuss.bewege();
+        }
+        raumschiff.bewege();//brauchen wir eigentlich gar nicht mehr
     }
 
     /**
@@ -57,6 +54,7 @@ public class Spielwelt {
      * Zeichnet alle Elemente auf dem Spielfeld
      */
     public void zeicheAlles(PApplet app){
+        app.background(10, 20, 10);
         for (Monkey monkey: monkeys) {
             monkey.zeichne(app);
         }
@@ -75,7 +73,4 @@ public class Spielwelt {
      */
     public void pruefeTreffer(){}
 
-    public void dasisteinTest(){
-        int hallo = 2;
-    }
 }

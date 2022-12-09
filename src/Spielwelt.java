@@ -80,8 +80,13 @@ public class Spielwelt {
         raumschiff.bewegeNachLinks();
     }
 
-    public void erzeugeSchuss(){
-        addSchuss(new Schuss(raumschiff.getPosX(), raumschiff.getPosY()));
-
+    public void erzeugeSchuss() {
+        if (schuesse.size() == 0) {
+            addSchuss(new Schuss(raumschiff.getPosX(), raumschiff.getPosY()));
+        }else{
+            if (schuesse.get(schuesse.size()-1).getPosY() < 300) {
+                addSchuss(new Schuss(raumschiff.getPosX(), raumschiff.getPosY()));
+            }
+        }
     }
 }

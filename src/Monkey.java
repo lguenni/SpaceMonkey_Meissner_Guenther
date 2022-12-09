@@ -11,6 +11,10 @@ public abstract class Monkey extends Spielobjekt {
      */
     public void bewege(){
         posX = posX + 1;
+
+        if(this.getPosX() >= 600 - this.getBreite()){
+            this.setPosX(0);
+        }
     }
 
     /**

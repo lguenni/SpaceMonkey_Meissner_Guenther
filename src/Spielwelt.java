@@ -12,10 +12,8 @@ public class Spielwelt {
     Apollo404 raumschiff;
 
     public Spielwelt() {
-
         monkeys = new ArrayList<>();
         schuesse = new ArrayList<>();
-
     }
 
     /**
@@ -30,8 +28,9 @@ public class Spielwelt {
      */
     public void addSchuss(Schuss schuss) {this.schuesse.add(schuss);}
 
+
     /**
-     * Ruft die bewege Methode aller Affen in der Liste auf
+     * Ruft die bewege Methode aller Affen und Schüsse auf
      */
     public void bewege(){
         for (Monkey monkey: monkeys) {
@@ -41,13 +40,6 @@ public class Spielwelt {
             schuss.bewege();
         }
     }
-
-    /**
-     * Löscht den übergebenen Affe vom Spielfeld
-     * @param monkey Zu löschender Affe
-     */
-
-    public void loescheMonster(Monkey monkey){}
 
     /**
      * Zeichnet alle Elemente auf dem Spielfeld
@@ -62,6 +54,7 @@ public class Spielwelt {
         }
         raumschiff.zeichne(app);
     }
+
     /**
      * Zeichnet den aktuellen Spielzustand
      */
@@ -72,14 +65,25 @@ public class Spielwelt {
      */
     public void pruefeTreffer(){}
 
+    /**
+     * Ruft die bewegeNachRechts Methode des Raumschiffs auf
+     */
     public void bewegeRaumschiffRechts() {
         raumschiff.bewegeNachRechts();
     }
 
+    /**
+     * Ruft die bewegeNachLinks Methode des Raumschiffs auf
+     */
     public void bewegeRaumschiffLinks() {
         raumschiff.bewegeNachLinks();
     }
 
+    /**
+     * erzeugt einen Schuss an der aktuellen Position des Raumschiffs;
+     * neuer Schuss kann er erzeugt werden, wenn sich der alte Schuss
+     * unterhalb von der Position 300 befindet
+     */
     public void erzeugeSchuss() {
         if (schuesse.size() == 0) {
             addSchuss(new Schuss(raumschiff.getPosX() - 3 , raumschiff.getPosY()));
@@ -90,9 +94,21 @@ public class Spielwelt {
         }
     }
 
+    /**
+     * löscht einen Schuss aus der Liste schuesse
+     * @param posInListe Position des zu löschenden Schusses in der Liste schuesse
+     */
     public void loescheSchuss(int posInListe){
         if (schuesse.size()>= posInListe) {
             schuesse.remove(posInListe);
         }
     }
+
+
+    /**
+     * Löscht den übergebenen Affe vom Spielfeld
+     * @param posInListe Zu löschender Affe
+     */
+    public void removeMonkey(int posInListe){}
+
 }

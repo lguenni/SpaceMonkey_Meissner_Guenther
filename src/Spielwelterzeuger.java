@@ -23,10 +23,18 @@ public class Spielwelterzeuger {
 
     }
 
+    /**
+     * Gibt den Spielzustand in dem sich das aktuelle Spiel befindet zurück
+     * @return aktueller Spielzustand
+     */
     public Spielzustand getZustand() {
         return zustand;
     }
 
+    /**
+     * Setzt den aktuelle Spielzustand
+     * @param zustand zu setzender Zustand
+     */
     public void setZustand(Spielzustand zustand) {
         this.zustand = zustand;
     }

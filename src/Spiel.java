@@ -5,12 +5,14 @@ import java.awt.image.renderable.RenderableImage;
 public class Spiel extends PApplet {
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
+    private Spielzustand zustand;
 
 
     public Spiel() {
         welt = new Spielwelt();
         erzeuger = new Spielwelterzeuger(welt);
         erzeuger.initSpielwelt();
+        setSpielZustand(Spielzustand.SPIEL_LAEUFT);
     }
 
     @Override
@@ -43,5 +45,25 @@ public class Spiel extends PApplet {
         }
     }
 
+    /**
+     * Gibt den Spielzustand in dem sich das aktuelle Spiel befindet zurück
+     * @return aktueller Spielzustand
+     */
+    public Spielzustand getSpielzustand() {
+        return zustand;
+    }
+
+    /**
+     * Setzt den aktuelle Spielzustand
+     * @param zustand zu setzender Zustand
+     */
+    public void setSpielZustand(Spielzustand zustand) {
+        this.zustand = zustand;
+    }
+
+    /**
+     * Prüft ob sich der aktuelle Spielzustand verändert hat
+     */
+    public void pruefeSpielzustand(){}
 
 }

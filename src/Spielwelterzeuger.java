@@ -1,7 +1,7 @@
 public class Spielwelterzeuger {
 
     private Spielwelt spielwelt;
-    private Spielzustand zustand;
+
 
     public Spielwelterzeuger(Spielwelt spielwelt) {
         this.spielwelt = spielwelt;
@@ -11,44 +11,21 @@ public class Spielwelterzeuger {
      * Erzeugt das Spielfeld neu und startet das Spiel
      */
     public void initSpielwelt(){
-        setMonkeys(8);
+        createMonkeys(8);
         spielwelt.raumschiff = new Apollo404(300, 500);
-        setZustand(Spielzustand.SPIEL_LAEUFT);
     }
 
-    /**
-     * Prüft ob sich der aktuelle Spielzustand verändert hat
-     */
-    public void pruefeSpielzustand(){
-
-    }
-
-    /**
-     * Gibt den Spielzustand in dem sich das aktuelle Spiel befindet zurück
-     * @return aktueller Spielzustand
-     */
-    public Spielzustand getZustand() {
-        return zustand;
-    }
-
-    /**
-     * Setzt den aktuelle Spielzustand
-     * @param zustand zu setzender Zustand
-     */
-    public void setZustand(Spielzustand zustand) {
-        this.zustand = zustand;
-    }
 
     /**
      * Ruft die addMonkey Methoden für alle drei Monkey Methoden auf.
      * Die Affen werden automatisch in gleichmäßigem Abstand gesetzt.
-     * @param AffenProZeile Anzahl der Affen die pro Typ gesetzt werden
+     * @param affenProZeile Anzahl der Affen die pro Typ gesetzt werden
      */
-    public void setMonkeys(int AffenProZeile){
+    public void createMonkeys(int affenProZeile){
         int widthCanvas = 600;
-        int abstand = (widthCanvas-14) / (AffenProZeile); //width-Affenbreite
+        int abstand = (widthCanvas-14) / (affenProZeile); //width-Affenbreite
 
-        for (int i = 1; i < AffenProZeile + 1; i++) {
+        for (int i = 1; i < affenProZeile + 1; i++) {
             spielwelt.addMonkey(new MarsMonkey(i * abstand, 50));
             spielwelt.addMonkey(new MoonMonkey(i * abstand, 150));
             spielwelt.addMonkey(new StarMonkey(i * abstand, 250));

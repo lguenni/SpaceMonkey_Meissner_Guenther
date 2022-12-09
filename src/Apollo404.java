@@ -3,7 +3,7 @@ import processing.core.PApplet;
 public class Apollo404 extends Spielobjekt {
 
 
-    private int breiteDreick = 16;
+    private int breiteDreieck = 16;
 
     public Apollo404(int posX, int posY) {
 
@@ -15,7 +15,7 @@ public class Apollo404 extends Spielobjekt {
     public void zeichne(PApplet app){
         app.pushStyle();
         app.fill(230, 15, 15);
-        app.triangle(posX, posY, posX +breiteDreick, posY + breiteDreick, posX - breiteDreick, posY + breiteDreick);
+        app.triangle(posX, posY, posX + breiteDreieck, posY + breiteDreieck, posX - breiteDreieck, posY + breiteDreieck);
         app.popStyle();
     }
 
@@ -23,7 +23,7 @@ public class Apollo404 extends Spielobjekt {
   * Stoppt das Raumschiff am Leinwandrand */
     public void bewegeNachRechts() {
 
-        if (posX + breiteDreick >= 600) {
+        if (posX + breiteDreieck >= 600) {
             posX +=0;   //bewegt sich nicht weiter
         } else {
             posX += 2;
@@ -34,7 +34,7 @@ public class Apollo404 extends Spielobjekt {
      * Stoppt das Raumschiff am Leinwandrand */
     public void bewegeNachLinks() {
 
-        if (posX - breiteDreick <= 0) {
+        if (posX - breiteDreieck <= 0) {
             posX +=0;   //bewegt sich nicht weiter
         } else {
             posX -= 2;

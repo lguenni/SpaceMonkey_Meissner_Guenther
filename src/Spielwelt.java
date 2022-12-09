@@ -98,7 +98,7 @@ public class Spielwelt {
      * löscht einen Schuss aus der Liste schuesse
      * @param posInListe Position des zu löschenden Schusses in der Liste schuesse
      */
-    public void loescheSchuss(int posInListe){
+    public void removeSchuss(int posInListe){
         if (schuesse.size()>= posInListe) {
             schuesse.remove(posInListe);
         }

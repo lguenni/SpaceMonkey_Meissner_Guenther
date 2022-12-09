@@ -6,6 +6,7 @@ public class Spiel extends PApplet {
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
 
+
     public Spiel() {
         welt = new Spielwelt();
         erzeuger = new Spielwelterzeuger(welt);
@@ -25,6 +26,7 @@ public class Spiel extends PApplet {
         welt.zeicheAlles(this);
     }
 
+    /** Bei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/
     private void verarbeiteEingabe() {
         if (keyPressed) {
             if (key == 'd' || keyCode == RIGHT) {

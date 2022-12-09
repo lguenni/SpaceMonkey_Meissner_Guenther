@@ -15,7 +15,7 @@ public class Schuss extends Spielobjekt{
         posY = posY - Geschwindigkeit;
     }
 
-
+/** Erstellt das Schussobjekt grafisch*/
     public void zeichne(PApplet app) {
         app.pushStyle();
         app.fill(255, 0, 127);

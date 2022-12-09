@@ -89,4 +89,10 @@ public class Spielwelt {
             }
         }
     }
+
+    public void loescheSchuss(int posInListe){
+        if (schuesse.size()>= posInListe) {
+            schuesse.remove(posInListe);
+        }
+    }
 }

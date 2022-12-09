@@ -38,9 +38,8 @@ public class Spielwelterzeuger {
      */
     public void setMonkeys(int AffenProZeile){
         int widthCanvas = 600;
-        int abstand = (widthCanvas-14) / (AffenProZeile + 1); //width-Affenbreite
+        int abstand = (widthCanvas-14) / (AffenProZeile); //width-Affenbreite
 
-        //Schleife startet nicht bei 0 damit erster Affe nicht an Pos 0
         for (int i = 1; i < AffenProZeile + 1; i++) {
             spielwelt.addMonkey(new MarsMonkey(i * abstand, 50));
             spielwelt.addMonkey(new MoonMonkey(i * abstand, 150));

@@ -22,4 +22,5 @@ public class Schuss extends Spielobjekt{
         app.rect(posX, posY, breite, hoehe);
         app.popStyle();
     }
+
 }

@@ -18,6 +18,21 @@ public class Spiel extends PApplet {
 
     @Override
     public void draw() {
+        verarbeiteEingabe();
+        welt.bewege();
         welt.zeicheAlles(this);
     }
+
+    private void verarbeiteEingabe() {
+        if (keyPressed) {
+            if (key == 'd' || keyCode == UP) {
+                welt.bewegeRaumschiffRechts();
+            }
+
+            if (key == 'a' || keyCode == DOWN) {
+                welt.bewegeRaumschiffLinks();
+            }
+        }
+    }
+
 }

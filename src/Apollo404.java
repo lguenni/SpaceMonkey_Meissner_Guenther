@@ -38,4 +38,12 @@ public class Apollo404 extends Spielobjekt {
         app.triangle(posX, posY, posX - 16, posY + 16, posX + 16, posY + 16);
         app.popStyle();
     }
+
+    public void bewegeNachRechts() {
+        posX += 1;
+    }
+
+    public void bewegeNachLinks() {
+        posY -= 1;
+    }
 }

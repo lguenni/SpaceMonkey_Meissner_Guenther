@@ -75,7 +75,11 @@ public class Spielwelt {
      */
     public void pruefeTreffer(){}
 
-    public void dasisteinTest(){
-        int hallo = 2;
+    public void bewegeRaumschiffRechts() {
+        raumschiff.bewegeNachRechts();
+    }
+
+    public void bewegeRaumschiffLinks() {
+        raumschiff.bewegeNachLinks();
     }
 }

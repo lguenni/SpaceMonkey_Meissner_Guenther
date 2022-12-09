@@ -82,10 +82,10 @@ public class Spielwelt {
 
     public void erzeugeSchuss() {
         if (schuesse.size() == 0) {
-            addSchuss(new Schuss(raumschiff.getPosX(), raumschiff.getPosY()));
+            addSchuss(new Schuss(raumschiff.getPosX() - 3 , raumschiff.getPosY()));
         }else{
             if (schuesse.get(schuesse.size()-1).getPosY() < 300) {
-                addSchuss(new Schuss(raumschiff.getPosX(), raumschiff.getPosY()));
+                addSchuss(new Schuss(raumschiff.getPosX() - 3, raumschiff.getPosY()));
             }
         }
     }

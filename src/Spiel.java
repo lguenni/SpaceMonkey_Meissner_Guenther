@@ -34,7 +34,12 @@ public class Spiel extends PApplet {
             if (key == 'a' || keyCode == LEFT) {
                 welt.bewegeRaumschiffLinks();
             }
+
+            if (key == ' ' || keyCode == UP || key == 'w'){
+                welt.erzeugeSchuss();
+            }
         }
     }
+
 
 }

@@ -80,4 +80,9 @@ public class Spielwelt {
     public void bewegeRaumschiffLinks() {
         raumschiff.bewegeNachLinks();
     }
+
+    public void erzeugeSchuss(){
+        addSchuss(new Schuss(raumschiff.getPosX(), raumschiff.getPosY()));
+
+    }
 }

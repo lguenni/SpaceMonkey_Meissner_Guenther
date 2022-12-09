@@ -6,19 +6,19 @@ public class Schuss extends Spielobjekt{
         super(posX, posY, 10,6);
     }
 
-    int Geschwindigkeit;
+    int Geschwindigkeit = 3;
 
     /**
      * Bewegt den Schuss mit der Geschwindigkeit nach oben
      */
     public void bewege(){
-        posY = posY + Geschwindigkeit;
+        posY = posY - Geschwindigkeit;
     }
 
 
     public void zeichne(PApplet app) {
         app.pushStyle();
-        app.fill(10, 10, 10);
+        app.fill(255, 0, 127);
         app.rect(posX, posY, breite, hoehe);
         app.popStyle();
     }

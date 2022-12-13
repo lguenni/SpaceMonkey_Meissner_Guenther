@@ -57,17 +57,15 @@ public abstract class Spielobjekt {
      * @return true bei Kollision, false bei keiner Kollision
      */
     public boolean hasKollisionMit(Spielobjekt that){
-        boolean kollisionXrechts = this.getPosX()+this.getBreite()>= that.getPosX();
+        boolean kollisionXrechts = this.getPosX()+this.getBreite() >= that.getPosX();
         boolean kollisionXlinks = that.getPosX()+that.getBreite()>= this.getPosX();
-        boolean kollisionYoben = this.getPosY()+this.getHoehe()>= that.getPosY();
-        boolean kollisionYunten = that.getPosY()+that.getHoehe()>= this.getPosY();
+        boolean kollisionYoben = this.getPosY()+this.getHoehe() >= that.getPosY();
+        boolean kollisionYunten = that.getPosY()+that.getHoehe() >= this.getPosY();
 
         boolean kollisionX = kollisionXlinks && kollisionXrechts;
         boolean kollisionY = kollisionYoben && kollisionYunten;
 
         return kollisionX && kollisionY;
     }
-
-
 }
 

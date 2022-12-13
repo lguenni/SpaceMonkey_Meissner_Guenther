@@ -26,6 +26,7 @@ public class Spiel extends PApplet {
         verarbeiteEingabe();
         welt.bewege();
         welt.zeicheAlles(this);
+        welt.aufräumen();
     }
 
     /** Bei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/

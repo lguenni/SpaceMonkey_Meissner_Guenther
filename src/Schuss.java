@@ -23,7 +23,7 @@ public class Schuss extends Spielobjekt{
         app.popStyle();
     }
 
-    public void onKollision (){
+    public void onKollisionSchuss (){
         welt.removeSchuss(this);
 
     }

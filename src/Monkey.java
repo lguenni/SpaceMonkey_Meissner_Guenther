@@ -22,7 +22,7 @@ public abstract class Monkey extends Spielobjekt {
      */
     public abstract void zeichne(PApplet app);
 
-    public void onKollision (){
+    public void onKollisionMonkey (){
         welt.removeMonkey(this);
 
     }

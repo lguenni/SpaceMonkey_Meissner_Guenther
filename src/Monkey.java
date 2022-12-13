@@ -2,8 +2,8 @@ import processing.core.PApplet;
 
 public abstract class Monkey extends Spielobjekt {
 
-    public Monkey(int posX, int posY) {
-        super(posX, posY, 14, 14);
+    public Monkey(ISpielWelt welt,int posX, int posY) {
+        super(welt,posX, posY, 14, 14);
     }
 
     /**
@@ -21,4 +21,11 @@ public abstract class Monkey extends Spielobjekt {
      * Abstrakte Methode zum Aufrufen der zeichne Methoden
      */
     public abstract void zeichne(PApplet app);
+
+    public void onKollision (){
+        welt.removeMonkey(this);
+
+    }
+
+
 }

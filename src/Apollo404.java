@@ -5,9 +5,9 @@ public class Apollo404 extends Spielobjekt {
 
     private int breiteDreieck = 16;
 
-    public Apollo404(int posX, int posY) {
+    public Apollo404(ISpielWelt welt, int posX, int posY) {
 
-        super(posX, posY, 20, 20);
+        super(welt,posX, posY, 20, 20);
     }
 
 

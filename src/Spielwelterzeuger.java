@@ -1,10 +1,10 @@
 public class Spielwelterzeuger {
 
-    private Spielwelt spielwelt;
+    private Spielwelt welt;
 
 
-    public Spielwelterzeuger(Spielwelt spielwelt) {
-        this.spielwelt = spielwelt;
+    public Spielwelterzeuger(Spielwelt welt) {
+        this.welt = welt;
     }
 
     /**
@@ -12,7 +12,7 @@ public class Spielwelterzeuger {
      */
     public void initSpielwelt(){
         createMonkeys(8);
-        spielwelt.raumschiff = new Apollo404(300, 500);
+        welt.raumschiff = new Apollo404(welt,300, 500);
     }
 
 
@@ -26,9 +26,9 @@ public class Spielwelterzeuger {
         int abstand = (widthCanvas-14) / (affenProZeile); //width-Affenbreite
 
         for (int i = 1; i < affenProZeile + 1; i++) {
-            spielwelt.addMonkey(new MarsMonkey(i * abstand, 50));
-            spielwelt.addMonkey(new MoonMonkey(i * abstand, 150));
-            spielwelt.addMonkey(new StarMonkey(i * abstand, 250));
+            welt.addMonkey(new MarsMonkey(welt,i * abstand, 50));
+            welt.addMonkey(new MoonMonkey(welt,i * abstand, 150));
+            welt.addMonkey(new StarMonkey(welt,i * abstand, 250));
         }
 
 

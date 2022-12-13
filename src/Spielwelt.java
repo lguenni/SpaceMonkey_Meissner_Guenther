@@ -3,7 +3,7 @@ import processing.core.PApplet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Spielwelt {
+public class Spielwelt implements ISpielWelt{
 
     private int breite;
     private int hoehe;
@@ -35,9 +35,16 @@ public class Spielwelt {
     public void bewege(){
         for (Monkey monkey: monkeys) {
             monkey.bewege();
-        }
-        for (Schuss schuss: schuesse) {
-            schuss.bewege();
+
+            for (Schuss schuss : schuesse) {
+                schuss.bewege();
+                if (schuss.hasKollisionMit(monkey)){
+                    schuss.onKollision();
+                    monkey.onKollision();
+
+                }
+            }
+
         }
     }
 
@@ -86,29 +93,19 @@ public class Spielwelt {
      */
     public void erzeugeSchuss() {
         if (schuesse.size() == 0) {
-            addSchuss(new Schuss(raumschiff.getPosX() - 3 , raumschiff.getPosY()));
+            addSchuss(new Schuss(this ,raumschiff.getPosX() - 3 , raumschiff.getPosY()));
         }else{
             if (schuesse.get(schuesse.size()-1).getPosY() < 300) {
-                addSchuss(new Schuss(raumschiff.getPosX() - 3, raumschiff.getPosY()));
+                addSchuss(new Schuss(this ,raumschiff.getPosX() - 3, raumschiff.getPosY()));
             }
         }
     }
 
-    /**
-     * löscht einen Schuss aus der Liste schuesse
-     * @param posInListe Position des zu löschenden Schusses in der Liste schuesse
-     */
-    public void removeSchuss(int posInListe){
-        if (schuesse.size()>= posInListe) {
-            schuesse.remove(posInListe);
-        }
+    public void removeSchuss(Schuss schuss){
+        schuesse.remove(schuss);
     }
 
-
-    /**
-     * Löscht den übergebenen Affe vom Spielfeld
-     * @param posInListe Zu löschender Affe
-     */
-    public void removeMonkey(int posInListe){}
-
+    public void removeMonkey(Monkey monkey){
+        monkeys.remove(monkey);
+    }
 }

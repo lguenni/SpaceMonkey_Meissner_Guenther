@@ -2,8 +2,8 @@ import processing.core.PApplet;
 
 public class MoonMonkey extends Monkey{
 
-    public MoonMonkey(int posX, int posY) {
-        super(posX, posY);
+    public MoonMonkey(ISpielWelt welt,int posX, int posY) {
+        super(welt,posX, posY);
     }
     /**
      * Überschreibt die Methode "zeichne" und zeichnet einen MoonMonkey

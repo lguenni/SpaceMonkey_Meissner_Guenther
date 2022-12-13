@@ -2,8 +2,8 @@ import processing.core.PApplet;
 
 public class Schuss extends Spielobjekt{
 
-    public Schuss(int posX, int posY) {
-        super(posX, posY, 10,6);
+    public Schuss(ISpielWelt welt,int posX, int posY) {
+        super(welt,posX, posY, 10,6);
     }
 
     int Geschwindigkeit = 3;
@@ -23,4 +23,8 @@ public class Schuss extends Spielobjekt{
         app.popStyle();
     }
 
+    public void onKollision (){
+        welt.removeSchuss(this);
+
+    }
 }

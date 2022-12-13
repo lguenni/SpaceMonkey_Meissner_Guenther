@@ -2,8 +2,8 @@ import processing.core.PApplet;
 
 public class StarMonkey extends Monkey{
 
-    public StarMonkey(int posX, int posY) {
-        super(posX, posY);
+    public StarMonkey(ISpielWelt welt,int posX, int posY) {
+        super(welt,posX, posY);
     }
 
     /**

@@ -4,12 +4,14 @@ public abstract class Spielobjekt {
     protected int posY;
     protected int hoehe;
     protected int breite;
+    ISpielWelt welt;
 
-    public Spielobjekt(int posX, int posY, int hoehe, int breite) {
+    public Spielobjekt(ISpielWelt welt,int posX, int posY, int hoehe, int breite) {
         this.posX = posX;
         this.posY = posY;
         this.hoehe = hoehe;
         this.breite = breite;
+        this.welt = welt;
     }
 
     /**
@@ -65,5 +67,7 @@ public abstract class Spielobjekt {
 
         return kollisionX && kollisionY;
     }
+
+
 }
 

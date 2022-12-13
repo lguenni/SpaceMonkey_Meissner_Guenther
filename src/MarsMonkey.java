@@ -2,8 +2,8 @@ import processing.core.PApplet;
 
 public class MarsMonkey extends Monkey{
 
-    public MarsMonkey(int posX, int posY) {
-        super(posX, posY);
+    public MarsMonkey(ISpielWelt welt, int posX, int posY) {
+        super(welt,posX, posY);
     }
 
     /**

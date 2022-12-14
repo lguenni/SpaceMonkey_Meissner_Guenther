@@ -23,6 +23,7 @@ public class Schuss extends Spielobjekt{
         app.popStyle();
     }
 
+    /** Methode verweist auf Methode "removeSchuss" aus Spielwelt und übergibt diese Klasse*/
     public void onKollisionSchuss (){
         welt.removeSchuss(this);
     }

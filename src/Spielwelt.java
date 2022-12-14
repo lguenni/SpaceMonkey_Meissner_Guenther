@@ -19,7 +19,6 @@ public class Spielwelt implements ISpielWelt {
 
     /**
      * Fügt der Liste monkeys einen Affe vom Typ Monkey hinzu
-     *
      * @param monkey ist der Affe der hinzugefügt
      */
     public void addMonkey(Monkey monkey) {
@@ -45,18 +44,27 @@ public class Spielwelt implements ISpielWelt {
         prüfeKollosionen();
     }
 
+    /**
+     * Ruft die bewege Methode aller Schüsse in der Liste schüsse auf
+     */
     private void bewegeSchüsse() {
         for (Schuss schuss : schuesse) {
             schuss.bewege();
         }
     }
 
+    /**
+     * Ruft die bewege Methode aller Affen in der Liste affe auf
+     */
     private void bewegeMonkeys() {
         for (Monkey monkey : monkeys) {
             monkey.bewege();
         }
     }
 
+    /**
+     * Prüft Kollissionen von jedem aktiven Schuss mit jedem aktiven Monkey
+     */
     private void prüfeKollosionen() {
         for (Monkey monkey : monkeys) {
             for (Schuss schuss : schuesse) {
@@ -122,11 +130,18 @@ public class Spielwelt implements ISpielWelt {
 //        monkeys.remove(monkey);
     }
 
+    /**
+     * Löscht die Elemente die in der Liste "zulöschen" definiert sind aus den Listen "monkeys" und "schüsse"
+     */
     public void aufräumen() {
         monkeys.removeAll(zuLöschen);
         schuesse.removeAll(zuLöschen);
     }
 
+    /**
+     * Prüft die Anzahl der aktiven Monkeys auf dem Spielfeld
+     * @return Anzahl der Monkeys als int-Wert
+     */
     public int pruefeAnzahlMonkeys(){
         return  monkeys.size();
     }

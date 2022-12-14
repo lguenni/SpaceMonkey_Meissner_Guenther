@@ -25,6 +25,5 @@ public class Schuss extends Spielobjekt{
 
     public void onKollisionSchuss (){
         welt.removeSchuss(this);
-
     }
 }

@@ -72,7 +72,6 @@ public class Spielwelt implements ISpielWelt {
      * Zeichnet alle Elemente auf dem Spielfeld
      */
     public void zeicheAlles(PApplet app) {
-        app.background(10, 20, 10);
         for (Monkey monkey : monkeys) {
             monkey.zeichne(app);
         }
@@ -80,18 +79,6 @@ public class Spielwelt implements ISpielWelt {
             schuss.zeichne(app);
         }
         raumschiff.zeichne(app);
-    }
-
-    /**
-     * Zeichnet den aktuellen Spielzustand
-     */
-    public void zeicheSpielzustand() {
-    }
-
-    /**
-     * Prüft ob der aktuelle Schuss ein Treffer ist
-     */
-    public void pruefeTreffer() {
     }
 
     /**
@@ -138,5 +125,9 @@ public class Spielwelt implements ISpielWelt {
     public void aufräumen() {
         monkeys.removeAll(zuLöschen);
         schuesse.removeAll(zuLöschen);
+    }
+
+    public int pruefeAnzahlMonkeys(){
+        return  monkeys.size();
     }
 }

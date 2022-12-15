@@ -90,12 +90,17 @@ public class Spiel extends PApplet {
             textYpos = 20;
             textSize = 15;
             verbleibendeZeit = spielZeit_max - parseInt(System.currentTimeMillis() - timestamp_start);
+            this.pushStyle();
+            this.fill(200, 200, 200);
+            this.textSize(textSize);
+            this.text("Verbleibende Zeit: " + str(verbleibendeZeit/1000) +"s", 400, 20);
+            this.popStyle();
 
         } else if (getSpielzustand() == Spielzustand.SPIEL_GEWONNEN) {
             ausgabeText = "JUHUUU DAS WELTALL IST WIEDER SICHER";
-            textXpos = 20;
+            textXpos = 30;
             textYpos = 300;
-            textSize = 30;
+            textSize = 25;
         }else if (getSpielzustand() == Spielzustand.SPIEL_VERLOREN) {
             ausgabeText = "Oh nein, die Monkeys haben die Macht übernommen!";
             textXpos = 50;
@@ -106,7 +111,6 @@ public class Spiel extends PApplet {
         this.fill(200, 200, 200);
         this.textSize(textSize);
         this.text(ausgabeText,textXpos , textYpos);
-        this.text("Verbleibende Zeit: " + str(verbleibendeZeit/1000) +"s", 400, 20);
         this.popStyle();
     }
 }

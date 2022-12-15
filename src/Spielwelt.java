@@ -9,7 +9,7 @@ public class Spielwelt implements ISpielWelt {
     private int hoehe;
     private List<Monkey> monkeys;
     private List<Schuss> schuesse;
-    private List<Spielobjekt> zuLöschen = new ArrayList<>();
+    private List<Spielobjekt> zuLoeschen = new ArrayList<>();
     Apollo404 raumschiff;
 
     public Spielwelt() {
@@ -40,14 +40,14 @@ public class Spielwelt implements ISpielWelt {
      */
     public void bewege() {
         bewegeMonkeys();
-        bewegeSchüsse();
-        prüfeKollosionen();
+        bewegeSchuesse();
+        pruefeKollosionen();
     }
 
     /**
      * Ruft die bewege Methode aller Schüsse in der Liste schüsse auf
      */
-    private void bewegeSchüsse() {
+    private void bewegeSchuesse() {
         for (Schuss schuss : schuesse) {
             schuss.bewege();
         }
@@ -65,7 +65,7 @@ public class Spielwelt implements ISpielWelt {
     /**
      * Prüft Kollissionen von jedem aktiven Schuss mit jedem aktiven Monkey
      */
-    private void prüfeKollosionen() {
+    private void pruefeKollosionen() {
         for (Monkey monkey : monkeys) {
             for (Schuss schuss : schuesse) {
                 if (monkey.hasKollisionMit(schuss)) {
@@ -120,22 +120,22 @@ public class Spielwelt implements ISpielWelt {
 
     @Override
     public void removeSchuss(Schuss schuss) {
-        zuLöschen.add(schuss);
+        zuLoeschen.add(schuss);
 //        schuesse.remove(schuss);
     }
 
     @Override
     public void removeMonkey(Monkey monkey) {
-        zuLöschen.add(monkey);
+        zuLoeschen.add(monkey);
 //        monkeys.remove(monkey);
     }
 
     /**
      * Löscht die Elemente die in der Liste "zulöschen" definiert sind aus den Listen "monkeys" und "schüsse"
      */
-    public void aufräumen() {
-        monkeys.removeAll(zuLöschen);
-        schuesse.removeAll(zuLöschen);
+    public void aufraeumen() {
+        monkeys.removeAll(zuLoeschen);
+        schuesse.removeAll(zuLoeschen);
     }
 
     /**

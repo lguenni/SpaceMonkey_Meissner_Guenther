@@ -1,7 +1,5 @@
 import processing.core.PApplet;
 
-import java.awt.image.renderable.RenderableImage;
-
 public class Spiel extends PApplet {
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
@@ -34,7 +32,7 @@ public class Spiel extends PApplet {
         zeichneSpielzustand();
         welt.bewege();
         welt.zeicheAlles(this);
-        welt.aufräumen();
+        welt.aufraeumen();
     }
 
     /** Bei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/

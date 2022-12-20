@@ -7,7 +7,7 @@ public class Spielwelt implements ISpielWelt {
 
     private static final int HOEHESCHUSSABSTAND = 400;
     private static final int BREITESCHUSS = 6;
-
+//konstante in Schuss
     private int breite;
     private int hoehe;
 

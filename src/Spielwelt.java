@@ -5,9 +5,8 @@ import java.util.List;
 
 public class Spielwelt implements ISpielWelt {
 
-    private static final int HOEHESCHUSSABSTAND = 400;
-    private static final int BREITESCHUSS = 6;
-//konstante in Schuss
+    static final int HOEHESCHUSSABSTAND = 400;
+
     private int breite;
     private int hoehe;
 
@@ -114,7 +113,7 @@ public class Spielwelt implements ISpielWelt {
      * unterhalb von der Position 300 befindet
      */
     public void erzeugeSchuss() {
-        int positionsausgleich = (raumschiff.breite / 2) - (BREITESCHUSS / 2);
+        int positionsausgleich = (raumschiff.breite / 2) - (Schuss.BREITESCHUSS / 2);
         if (schuesse.size() == 0) {
             addSchuss(new Schuss(this, raumschiff.getPosX() + positionsausgleich, raumschiff.getPosY()));
         } else {
@@ -134,10 +133,6 @@ public class Spielwelt implements ISpielWelt {
         zuLoeschen.add(monkey);
     }
 
-    @Override
-    public int getBreiteSchuss() {
-        return this.BREITESCHUSS;
-    }
 
     /**
      * Löscht die Elemente die in der Liste "zulöschen" definiert sind aus den Listen "monkeys" und "schüsse"

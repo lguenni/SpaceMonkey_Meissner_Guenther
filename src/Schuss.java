@@ -3,9 +3,10 @@ import processing.core.PApplet;
 public class Schuss extends Spielobjekt{
 
     static final int GESCHWINDIGKEIT = 3;
+    public static final int BREITESCHUSS = 6;
 
     public Schuss(ISpielWelt welt,int posX, int posY) {
-        super(welt,posX, posY, 10, welt.getBreiteSchuss());
+        super(welt,posX, posY, 10, BREITESCHUSS);
     }
 
     /**

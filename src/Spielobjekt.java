@@ -1,3 +1,6 @@
+import processing.core.PApplet;
+import processing.core.PImage;
+
 public abstract class Spielobjekt {
 
     protected int posX;
@@ -66,6 +69,15 @@ public abstract class Spielobjekt {
         boolean kollisionY = kollisionYoben && kollisionYunten;
 
         return kollisionX && kollisionY;
+    }
+
+    protected PImage[] loadFrames(PApplet app, String template, int n) {
+        PImage[] frames = new PImage[n];
+        for (int i = 0; i < n; i++) {
+            String filename = String.format(template, i + 1);
+            frames[i] = app.loadImage(filename);
+        }
+        return frames;
     }
 }
 

@@ -1,9 +1,10 @@
 import processing.core.PApplet;
 import processing.event.KeyEvent;
 
-import java.awt.image.renderable.RenderableImage;
-
 public class Spiel extends PApplet {
+
+    private static final int SPIELZEIT_MAX = 3*60*1000;
+
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
     private Spielzustand zustand;
@@ -12,9 +13,7 @@ public class Spiel extends PApplet {
     private int textXpos;
     private int textYpos;
     private int textSize;
-    private int spielZeit_max = 3*60*1000;
     private int verbleibendeZeit;
-
     boolean linksGedrueckt = false;
     boolean rechtsGedrueckt = false;
     boolean leertasteGedruckt= false;
@@ -98,7 +97,7 @@ public class Spiel extends PApplet {
         if (welt.pruefeAnzahlMonkeys() == 0) {
             this.zustand = Spielzustand.SPIEL_GEWONNEN;
         }
-        else if (System.currentTimeMillis() - timestamp_start > spielZeit_max){
+        else if (System.currentTimeMillis() - timestamp_start > SPIELZEIT_MAX){
             this.zustand = Spielzustand.SPIEL_VERLOREN;
         }
         else {
@@ -118,7 +117,7 @@ public class Spiel extends PApplet {
             textXpos = 20;
             textYpos = 20;
             textSize = 15;
-            verbleibendeZeit = spielZeit_max - parseInt(System.currentTimeMillis() - timestamp_start);
+            verbleibendeZeit = SPIELZEIT_MAX - parseInt(System.currentTimeMillis() - timestamp_start);
             this.pushStyle();
             this.fill(200, 200, 200);
             this.textSize(textSize);
@@ -126,7 +125,7 @@ public class Spiel extends PApplet {
             this.popStyle();
 
         } else if (getSpielzustand() == Spielzustand.SPIEL_GEWONNEN) {
-            ausgabeText = "JUHUUU DAS WELTALL IST WIEDER SICHER";
+            ausgabeText = "JUHUUU DAS WELTALL IST WIEDER SICHER!!!";
             textXpos = 30;
             textYpos = 300;
             textSize = 25;

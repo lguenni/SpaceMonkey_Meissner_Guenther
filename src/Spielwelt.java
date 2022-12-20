@@ -5,12 +5,17 @@ import java.util.List;
 
 public class Spielwelt implements ISpielWelt {
 
+    private static final int HOEHESCHUSSABSTAND = 400;
+    private static final int BREITESCHUSS = 6;
+
     private int breite;
     private int hoehe;
+
     private List<Monkey> monkeys;
     private List<Schuss> schuesse;
     private List<Spielobjekt> zuLoeschen = new ArrayList<>();
     Apollo404 raumschiff;
+
 
     public Spielwelt() {
         monkeys = new ArrayList<>();
@@ -109,11 +114,12 @@ public class Spielwelt implements ISpielWelt {
      * unterhalb von der Position 300 befindet
      */
     public void erzeugeSchuss() {
+        int positionsausgleich = (raumschiff.breite / 2) - (BREITESCHUSS / 2);
         if (schuesse.size() == 0) {
-            addSchuss(new Schuss(this, raumschiff.getPosX() - 3, raumschiff.getPosY()));
+            addSchuss(new Schuss(this, raumschiff.getPosX() + positionsausgleich, raumschiff.getPosY()));
         } else {
-            if (schuesse.get(schuesse.size() - 1).getPosY() < 300) {
-                addSchuss(new Schuss(this, raumschiff.getPosX() - 3, raumschiff.getPosY()));
+            if (schuesse.get(schuesse.size() - 1).getPosY() < HOEHESCHUSSABSTAND) {
+                addSchuss(new Schuss(this, raumschiff.getPosX() + positionsausgleich, raumschiff.getPosY()));
             }
         }
     }
@@ -121,13 +127,16 @@ public class Spielwelt implements ISpielWelt {
     @Override
     public void removeSchuss(Schuss schuss) {
         zuLoeschen.add(schuss);
-//        schuesse.remove(schuss);
     }
 
     @Override
     public void removeMonkey(Monkey monkey) {
         zuLoeschen.add(monkey);
-//        monkeys.remove(monkey);
+    }
+
+    @Override
+    public int getBreiteSchuss() {
+        return this.BREITESCHUSS;
     }
 
     /**

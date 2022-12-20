@@ -2,17 +2,17 @@ import processing.core.PApplet;
 
 public class Schuss extends Spielobjekt{
 
-    public Schuss(ISpielWelt welt,int posX, int posY) {
-        super(welt,posX, posY, 10,6);
-    }
+    static final int GESCHWINDIGKEIT = 3;
 
-    int Geschwindigkeit = 3;
+    public Schuss(ISpielWelt welt,int posX, int posY) {
+        super(welt,posX, posY, 10, welt.getBreiteSchuss());
+    }
 
     /**
      * Bewegt den Schuss mit der Geschwindigkeit nach oben
      */
     public void bewege(){
-        posY = posY - Geschwindigkeit;
+        posY = posY - GESCHWINDIGKEIT;
     }
 
 /** Erstellt das Schussobjekt grafisch*/

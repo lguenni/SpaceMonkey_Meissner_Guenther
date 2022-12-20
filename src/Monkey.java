@@ -3,7 +3,7 @@ import processing.core.PApplet;
 public abstract class Monkey extends Spielobjekt {
 
     public Monkey(ISpielWelt welt,int posX, int posY) {
-        super(welt,posX, posY, 14, 14);
+        super(welt,posX, posY, 25, 25);
     }
 
     /**

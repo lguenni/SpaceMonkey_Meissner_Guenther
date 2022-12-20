@@ -1,6 +1,9 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class MarsMonkey extends Monkey{
+
+    PImage marsMonkeyImage = null;
 
     public MarsMonkey(ISpielWelt welt, int posX, int posY) {
         super(welt,posX, posY);
@@ -11,10 +14,14 @@ public class MarsMonkey extends Monkey{
      */
     @Override
     public void zeichne(PApplet app) {
-        app.pushStyle();
-        app.fill(230, 15, 15);
-        app.rect(posX, posY, breite, hoehe);
-        app.popStyle();
+        //app.pushStyle();
+        //app.fill(230, 15, 15);
+        //app.rect(posX, posY, breite, hoehe);
+        //app.popStyle();
+        if (marsMonkeyImage == null) {
+            marsMonkeyImage = app.loadImage("ressources/Monkey1.png");
+        }
+        app.image(marsMonkeyImage,posX, posY, breite, hoehe);
     }
 
 

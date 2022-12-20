@@ -12,7 +12,7 @@ public class Spielwelterzeuger {
      */
     public void initSpielwelt(){
         createMonkeys(8);
-        welt.raumschiff = new Apollo404(welt,300, 500);
+        welt.raumschiff = new Apollo404(welt,300, 650);
     }
 
 

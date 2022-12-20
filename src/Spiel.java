@@ -3,7 +3,7 @@ import processing.event.KeyEvent;
 
 public class Spiel extends PApplet {
 
-    private static final int SPIELZEIT_MAX = 3*60*1000;
+    private static final int SPIELZEIT_MAX = 1*60*1000;
 
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
@@ -29,7 +29,7 @@ public class Spiel extends PApplet {
     @Override
     public void settings() {
         width = 600;
-        height = 600;
+        height = 700;
     }
 
     @Override

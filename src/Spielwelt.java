@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Spielwelt implements ISpielWelt {
 
-    static final int HOEHESCHUSSABSTAND = 400;
 
     private int breite;
     private int hoehe;
@@ -117,7 +116,7 @@ public class Spielwelt implements ISpielWelt {
         if (schuesse.size() == 0) {
             addSchuss(new Schuss(this, raumschiff.getPosX() + positionsausgleich, raumschiff.getPosY()));
         } else {
-            if (schuesse.get(schuesse.size() - 1).getPosY() < HOEHESCHUSSABSTAND) {
+            if (schuesse.get(schuesse.size() - 1).getPosY() < Schuss.HOEHESCHUSSABSTAND) {
                 addSchuss(new Schuss(this, raumschiff.getPosX() + positionsausgleich, raumschiff.getPosY()));
             }
         }

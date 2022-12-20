@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.event.KeyEvent;
 
 import java.awt.image.renderable.RenderableImage;
 
@@ -6,6 +7,10 @@ public class Spiel extends PApplet {
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
     private Spielzustand zustand;
+
+    boolean linksGedrueckt = false;
+    boolean rechtsGedrueckt = false;
+    boolean leertasteGedruckt= false;
 
 
     public Spiel() {
@@ -29,20 +34,41 @@ public class Spiel extends PApplet {
         welt.aufräumen();
     }
 
-    /** Bei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/
+    /** ÜBERABREITENBei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/
     private void verarbeiteEingabe() {
-        if (keyPressed) {
-            if (key == 'd' || keyCode == RIGHT) {
-                welt.bewegeRaumschiffRechts();
-            }
+        if (linksGedrueckt && !rechtsGedrueckt){
+            welt.bewegeRaumschiffLinks();
+        } else  if (!linksGedrueckt && rechtsGedrueckt){
+            welt.bewegeRaumschiffRechts();
+        }
+        if (leertasteGedruckt) {
+            welt.erzeugeSchuss();
+        }
+    }
 
-            if (key == 'a' || keyCode == LEFT) {
-                welt.bewegeRaumschiffLinks();
-            }
+    @Override
+    public void keyPressed(KeyEvent event) {
+        super.keyPressed();
 
-            if (key == ' ' || keyCode == UP || key == 'w'){
-                welt.erzeugeSchuss();
-            }
+        if (event.getKeyCode() == LEFT) {
+            linksGedrueckt = true;
+        } else if (event.getKeyCode() == RIGHT) {
+            rechtsGedrueckt = true;
+        } else if (event.getKey() == ' ') {
+            leertasteGedruckt = true;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent event) {
+        super.keyReleased();
+
+        if (event.getKeyCode() == LEFT) {
+            linksGedrueckt = false;
+        } else if (event.getKeyCode() == RIGHT) {
+            rechtsGedrueckt = false;
+        } else if (event.getKey() == ' ') {
+            leertasteGedruckt = false;
         }
     }
 

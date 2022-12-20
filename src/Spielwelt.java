@@ -9,7 +9,7 @@ public class Spielwelt implements ISpielWelt {
     private int hoehe;
     private List<Monkey> monkeys;
     private List<Schuss> schuesse;
-    private List<Spielobjekt> zuLöschen = new ArrayList<>();
+    private List<Spielobjekt> zuLoeschen = new ArrayList<>();
     Apollo404 raumschiff;
 
     public Spielwelt() {
@@ -19,7 +19,6 @@ public class Spielwelt implements ISpielWelt {
 
     /**
      * Fügt der Liste monkeys einen Affe vom Typ Monkey hinzu
-     *
      * @param monkey ist der Affe der hinzugefügt
      */
     public void addMonkey(Monkey monkey) {
@@ -41,23 +40,32 @@ public class Spielwelt implements ISpielWelt {
      */
     public void bewege() {
         bewegeMonkeys();
-        bewegeSchüsse();
-        prüfeKollosionen();
+        bewegeSchuesse();
+        pruefeKollosionen();
     }
 
-    private void bewegeSchüsse() {
+    /**
+     * Ruft die bewege Methode aller Schüsse in der Liste schüsse auf
+     */
+    private void bewegeSchuesse() {
         for (Schuss schuss : schuesse) {
             schuss.bewege();
         }
     }
 
+    /**
+     * Ruft die bewege Methode aller Affen in der Liste affe auf
+     */
     private void bewegeMonkeys() {
         for (Monkey monkey : monkeys) {
             monkey.bewege();
         }
     }
 
-    private void prüfeKollosionen() {
+    /**
+     * Prüft Kollissionen von jedem aktiven Schuss mit jedem aktiven Monkey
+     */
+    private void pruefeKollosionen() {
         for (Monkey monkey : monkeys) {
             for (Schuss schuss : schuesse) {
                 if (monkey.hasKollisionMit(schuss)) {
@@ -72,7 +80,6 @@ public class Spielwelt implements ISpielWelt {
      * Zeichnet alle Elemente auf dem Spielfeld
      */
     public void zeicheAlles(PApplet app) {
-        app.background(10, 20, 10);
         for (Monkey monkey : monkeys) {
             monkey.zeichne(app);
         }
@@ -80,18 +87,6 @@ public class Spielwelt implements ISpielWelt {
             schuss.zeichne(app);
         }
         raumschiff.zeichne(app);
-    }
-
-    /**
-     * Zeichnet den aktuellen Spielzustand
-     */
-    public void zeicheSpielzustand() {
-    }
-
-    /**
-     * Prüft ob der aktuelle Schuss ein Treffer ist
-     */
-    public void pruefeTreffer() {
     }
 
     /**
@@ -125,18 +120,29 @@ public class Spielwelt implements ISpielWelt {
 
     @Override
     public void removeSchuss(Schuss schuss) {
-        zuLöschen.add(schuss);
+        zuLoeschen.add(schuss);
 //        schuesse.remove(schuss);
     }
 
     @Override
     public void removeMonkey(Monkey monkey) {
-        zuLöschen.add(monkey);
+        zuLoeschen.add(monkey);
 //        monkeys.remove(monkey);
     }
 
-    public void aufräumen() {
-        monkeys.removeAll(zuLöschen);
-        schuesse.removeAll(zuLöschen);
+    /**
+     * Löscht die Elemente die in der Liste "zulöschen" definiert sind aus den Listen "monkeys" und "schüsse"
+     */
+    public void aufraeumen() {
+        monkeys.removeAll(zuLoeschen);
+        schuesse.removeAll(zuLoeschen);
+    }
+
+    /**
+     * Prüft die Anzahl der aktiven Monkeys auf dem Spielfeld
+     * @return Anzahl der Monkeys als int-Wert
+     */
+    public int pruefeAnzahlMonkeys(){
+        return  monkeys.size();
     }
 }

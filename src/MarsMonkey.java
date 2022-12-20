@@ -19,7 +19,7 @@ public class MarsMonkey extends Monkey{
         //app.rect(posX, posY, breite, hoehe);
         //app.popStyle();
         if (marsMonkeyImage == null) {
-            marsMonkeyImage = app.loadImage("ressources/monkeywin2.png");
+            marsMonkeyImage = app.loadImage("ressources/MarsMonkey1.png");
         }
         app.image(marsMonkeyImage,posX, posY, breite, hoehe);
     }

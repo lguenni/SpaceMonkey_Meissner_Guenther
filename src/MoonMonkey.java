@@ -1,6 +1,9 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class MoonMonkey extends Monkey{
+
+    PImage moonMonkeyImage = null;
 
     public MoonMonkey(ISpielWelt welt,int posX, int posY) {
         super(welt,posX, posY);
@@ -10,10 +13,15 @@ public class MoonMonkey extends Monkey{
      */
     @Override
     public void zeichne(PApplet app) {
-        app.pushStyle();
-        app.fill(200, 100, 100);
-        app.rect(posX, posY, breite, hoehe);
-        app.popStyle();
+        //app.pushStyle();
+        //app.fill(200, 100, 100);
+        //app.rect(posX, posY, breite, hoehe);
+        //app.popStyle();
+
+        if (moonMonkeyImage == null) {
+            moonMonkeyImage = app.loadImage("ressources/MoonMonkey1.png");
+        }
+        app.image(moonMonkeyImage,posX, posY, breite, hoehe);
     }
 
     @Override

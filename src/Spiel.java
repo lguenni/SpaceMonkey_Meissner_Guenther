@@ -3,17 +3,19 @@ import processing.event.KeyEvent;
 
 public class Spiel extends PApplet {
 
-    private static final int SPIELZEIT_MAX = 1*60*1000;
 
     Spielwelt welt;
     Spielwelterzeuger erzeuger;
     private Spielzustand zustand;
-    private final long timestamp_start;
+
+
     private String ausgabeText;
     private int textXpos;
     private int textYpos;
     private int textSize;
     private int verbleibendeZeit;
+
+
     boolean linksGedrueckt = false;
     boolean rechtsGedrueckt = false;
     boolean leertasteGedruckt= false;
@@ -23,7 +25,6 @@ public class Spiel extends PApplet {
         welt = new Spielwelt();
         erzeuger = new Spielwelterzeuger(welt);
         erzeuger.initSpielwelt();
-        timestamp_start = System.currentTimeMillis();
     }
 
     @Override
@@ -41,6 +42,7 @@ public class Spiel extends PApplet {
         welt.zeicheAlles(this);
         welt.aufraeumen();
     }
+
 
     /** ÜBERABREITENBei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/
     private void verarbeiteEingabe() {
@@ -97,7 +99,7 @@ public class Spiel extends PApplet {
         if (welt.pruefeAnzahlMonkeys() == 0) {
             this.zustand = Spielzustand.SPIEL_GEWONNEN;
         }
-        else if (System.currentTimeMillis() - timestamp_start > SPIELZEIT_MAX){
+        else if (welt.getVerbleibendeZeit() <= 0){
             this.zustand = Spielzustand.SPIEL_VERLOREN;
         }
         else {
@@ -117,11 +119,10 @@ public class Spiel extends PApplet {
             textXpos = 20;
             textYpos = 20;
             textSize = 15;
-            verbleibendeZeit = SPIELZEIT_MAX - parseInt(System.currentTimeMillis() - timestamp_start);
             this.pushStyle();
             this.fill(200, 200, 200);
             this.textSize(textSize);
-            this.text("Verbleibende Zeit: " + str(verbleibendeZeit/1000) +"s", 400, 20);
+            this.text("Verbleibende Zeit: " + str(welt.getVerbleibendeZeit()/1000) +"s", 400, 20);
             this.popStyle();
 
         } else if (getSpielzustand() == Spielzustand.SPIEL_GEWONNEN) {

@@ -3,7 +3,7 @@ import processing.core.PImage;
 
 public class MoonMonkey extends Monkey{
 
-    PImage moonMonkeyImage = null;
+    PImage[] frames = null;
 
     public MoonMonkey(ISpielWelt welt,int posX, int posY) {
         super(welt,posX, posY);
@@ -13,15 +13,15 @@ public class MoonMonkey extends Monkey{
      */
     @Override
     public void zeichne(PApplet app) {
-        //app.pushStyle();
-        //app.fill(200, 100, 100);
-        //app.rect(posX, posY, breite, hoehe);
-        //app.popStyle();
+        loadFrames(app);
 
-        if (moonMonkeyImage == null) {
-            moonMonkeyImage = app.loadImage("ressources/MoonMonkey1.png");
+        app.image(frames[0], posX, posY, breite, hoehe);
+    }
+
+    public void loadFrames(PApplet app){
+        if (frames == null) {
+            this.frames = loadFrames(app,"ressources/MoonMonkey/frame-%d.png", 2);
         }
-        app.image(moonMonkeyImage,posX, posY, breite, hoehe);
     }
 
     @Override

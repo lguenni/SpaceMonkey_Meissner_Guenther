@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Spielwelt implements ISpielWelt {
 
+    private static final int SPIELZEIT_MAX = 1*60*1000;
+    private final long timestamp_start;
 
     private int breite;
     private int hoehe;
@@ -18,6 +20,11 @@ public class Spielwelt implements ISpielWelt {
     public Spielwelt() {
         monkeys = new ArrayList<>();
         schuesse = new ArrayList<>();
+        timestamp_start = System.currentTimeMillis();
+    }
+
+    public int getVerbleibendeZeit(){
+        return SPIELZEIT_MAX - (int) (System.currentTimeMillis() - timestamp_start);
     }
 
     /**

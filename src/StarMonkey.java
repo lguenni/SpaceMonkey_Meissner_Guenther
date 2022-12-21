@@ -3,7 +3,7 @@ import processing.core.PImage;
 
 public class StarMonkey extends Monkey{
 
-    PImage starMonkeyImage = null;
+    PImage[] frames = null;
 
     public StarMonkey(ISpielWelt welt,int posX, int posY) {
         super(welt,posX, posY);
@@ -14,15 +14,14 @@ public class StarMonkey extends Monkey{
      */
     @Override
     public void zeichne(PApplet app) {
-       // app.pushStyle();
-        //app.fill(230, 200, 15);
-        //app.rect(posX, posY, breite, hoehe);
-        //app.popStyle();
-        if (starMonkeyImage == null) {
-           starMonkeyImage = app.loadImage("ressources/StarMonkey1.png");
-        }
-        app.image(starMonkeyImage,posX, posY, breite, hoehe);
+        loadFrames(app);
+
+        app.image(frames[0], posX, posY, breite, hoehe);
     }
 
-
+    public void loadFrames(PApplet app){
+        if (frames == null) {
+            this.frames = loadFrames(app,"ressources/StarMonkey/frame-%d.png", 2);
+        }
+    }
 }

@@ -15,7 +15,8 @@ public class MoonMonkey extends Monkey{
     public void zeichne(PApplet app) {
         loadFrames(app);
 
-        app.image(frames[0], posX, posY, breite, hoehe);
+        int frameIndex =  welt.getVerbleibendeZeit() % 2;
+        app.image(frames[frameIndex], posX, posY, breite, hoehe);
     }
 
     public void loadFrames(PApplet app){

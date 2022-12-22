@@ -4,6 +4,7 @@ import processing.core.PImage;
 public class MarsMonkey extends Monkey{
 
     PImage[] frames = null;
+    int frameIndex = 0;
 
     public MarsMonkey(ISpielWelt welt, int posX, int posY) {
         super(welt,posX, posY);
@@ -17,8 +18,9 @@ public class MarsMonkey extends Monkey{
         loadFrames(app);
 
 
+        int frameIndex =  Math.abs((welt.getVerbleibendeZeit() / 1000) % 2);
 
-        int frameIndex =  welt.getVerbleibendeZeit() % 2;
+
         app.image(frames[frameIndex], posX, posY, breite, hoehe );
 
     }

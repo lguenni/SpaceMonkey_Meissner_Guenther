@@ -16,7 +16,8 @@ public class StarMonkey extends Monkey{
     public void zeichne(PApplet app) {
         loadFrames(app);
 
-        int frameIndex =  welt.getVerbleibendeZeit() % 2;
+        int frameIndex =  Math.abs((welt.getVerbleibendeZeit() / 1000) % 2);
+
         app.image(frames[frameIndex], posX, posY, breite, hoehe);
     }
 

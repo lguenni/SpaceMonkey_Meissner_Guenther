@@ -11,20 +11,21 @@ public class MarsMonkey extends Monkey{
     }
 
     /**
-     * Überschreibt die Methode "zeichne" und zeichnet einen MarsMonkey
+     * Überschreibt die Methode "zeichne" und zeichnet einen animierten MarsMonkey
      */
     @Override
     public void zeichne(PApplet app) {
         loadFrames(app);
 
-
         int frameIndex =  Math.abs((welt.getVerbleibendeZeit() / 1000) % 2);
-
 
         app.image(frames[frameIndex], posX, posY, breite, hoehe );
 
     }
 
+    /**
+     * Lädt die Frames des MarsMonkeys einmalig.
+     */
     private void loadFrames(PApplet app) {
         if (frames == null) {
             this.frames = loadFrames(app,"ressources/MarsMonkey/frame-%d.png", 2);

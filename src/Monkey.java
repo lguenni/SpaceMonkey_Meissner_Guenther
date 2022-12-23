@@ -22,6 +22,7 @@ public abstract class Monkey extends Spielobjekt {
      */
     public abstract void zeichne(PApplet app);
 
+
     /** Methode verweist auf Methode "removeMonkey" aus Spielwelt und übergibt diese Klasse*/
     public void onKollisionMonkey (){
         welt.removeMonkey(this);

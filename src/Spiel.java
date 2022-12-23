@@ -44,7 +44,9 @@ public class Spiel extends PApplet {
     }
 
 
-    /** ÜBERABREITENBei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/
+    /** Bewegt Raumschiff nach rechts, wenn rechts gedrückt wird.
+     * Bewegt Raumschiff nach links, wenn links gedrückt wird.
+     * Bewegt Raumschiff und schießt, falls zwei Tasten betätigt werden.*/
     private void verarbeiteEingabe() {
         if (linksGedrueckt && !rechtsGedrueckt){
             welt.bewegeRaumschiffLinks();
@@ -56,6 +58,9 @@ public class Spiel extends PApplet {
         }
     }
 
+    /**
+     * Variablen werden auf "true" gesetzt, wenn zugehörige Taste gedrückt wird.
+     */
     @Override
     public void keyPressed(KeyEvent event) {
         super.keyPressed();
@@ -69,6 +74,9 @@ public class Spiel extends PApplet {
         }
     }
 
+    /**
+     * Variablen werden auf "false" gesetzt, wenn die zugehörige Tasten los gelassen werden.
+     */
     @Override
     public void keyReleased(KeyEvent event) {
         super.keyReleased();

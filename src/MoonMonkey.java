@@ -8,8 +8,9 @@ public class MoonMonkey extends Monkey{
     public MoonMonkey(ISpielWelt welt,int posX, int posY) {
         super(welt,posX, posY);
     }
+
     /**
-     * Überschreibt die Methode "zeichne" und zeichnet einen MoonMonkey
+     * Überschreibt die Methode "zeichne" und zeichnet einen animierten MoonMonkey.
      */
     @Override
     public void zeichne(PApplet app) {
@@ -19,12 +20,18 @@ public class MoonMonkey extends Monkey{
         app.image(frames[frameIndex], posX, posY, breite, hoehe);
     }
 
+    /**
+     * Lädt die Frames des MarsMonkeys einmalig.
+     */
     public void loadFrames(PApplet app){
         if (frames == null) {
             this.frames = loadFrames(app,"ressources/MoonMonkey/frame-%d.png", 2);
         }
     }
 
+    /**
+     * MoonMonkey bewegt sich in eine andere Richtung.
+     */
     @Override
     public void bewege(){
         posX = posX - 1;

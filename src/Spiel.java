@@ -44,7 +44,9 @@ public class Spiel extends PApplet {
     }
 
 
-    /** ÜBERABREITENBei Tasten Betätigung wird die jeweilige "bewege"-Funktion aufgerufen*/
+    /** Bewegt Raumschiff nach rechts, wenn rechts gedrückt wird.
+     * Bewegt Raumschiff nach links, wenn links gedrückt wird.
+     * Bewegt Raumschiff und schießt, falls zwei Tasten betätigt werden.*/
     private void verarbeiteEingabe() {
         if (linksGedrueckt && !rechtsGedrueckt){
             welt.bewegeRaumschiffLinks();
@@ -56,6 +58,9 @@ public class Spiel extends PApplet {
         }
     }
 
+    /**
+     * Variablen werden auf "true" gesetzt, wenn zugehörige Taste gedrückt wird.
+     */
     @Override
     public void keyPressed(KeyEvent event) {
         super.keyPressed();
@@ -69,6 +74,9 @@ public class Spiel extends PApplet {
         }
     }
 
+    /**
+     * Variablen werden auf "false" gesetzt, wenn die zugehörige Tasten los gelassen werden.
+     */
     @Override
     public void keyReleased(KeyEvent event) {
         super.keyReleased();
@@ -84,16 +92,16 @@ public class Spiel extends PApplet {
 
     /**
      * Gibt den Spielzustand in dem sich das aktuelle Spiel befindet zurück
-     * @return aktueller Spielzustand
+     * @return aktueller Spielzustand.
      */
     public Spielzustand getSpielzustand() {
         return zustand;
     }
 
     /**
-     * Setzt den aktuellen Spielzustand auf Läuft wenn mehr als 0 Affen vorhanden sind
-     * Setzt den aktuellen Spielzustand auf veloren wenn mehr als 3min vergangen sind
-     * Setzt den aktuellen Spielzustand auf gewonnen wenn keine Affen mehr vorhanden sind
+     * Setzt den aktuellen Spielzustand auf Läuft wenn mehr als 0 Affen vorhanden sind.
+     * Setzt den aktuellen Spielzustand auf veloren wenn mehr als 3min vergangen sind.
+     * Setzt den aktuellen Spielzustand auf gewonnen wenn keine Affen mehr vorhanden sind.
      */
     public void pruefeSpielzustand() {
         if (welt.pruefeAnzahlMonkeys() == 0) {
@@ -108,9 +116,9 @@ public class Spiel extends PApplet {
     }
 
     /**
-     * Zeichnet den aktuellen Spielzustand auf das Spielfeld
-     * Falls das Spiel gerade läuft wird die Anzahl der verbleibenden Monkyes angezeigt
-     * Die verbleibende Spielzeit wird in Sekunden angezeigt
+     * Zeichnet den aktuellen Spielzustand auf das Spielfeld.
+     * Falls das Spiel gerade läuft wird die Anzahl der verbleibenden Monkyes angezeigt.
+     * Die verbleibende Spielzeit wird in Sekunden angezeigt.
      */
     public void zeichneSpielzustand(){
         pruefeSpielzustand();
@@ -133,7 +141,7 @@ public class Spiel extends PApplet {
         }else if (getSpielzustand() == Spielzustand.SPIEL_VERLOREN) {
             ausgabeText = "Oh nein, die Monkeys haben die Macht übernommen!";
             textXpos = 50;
-            textYpos = 300;
+            textYpos = 350;
             textSize = 20;
         }
         this.pushStyle();

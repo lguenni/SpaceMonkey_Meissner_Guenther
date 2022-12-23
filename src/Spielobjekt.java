@@ -61,7 +61,7 @@ public abstract class Spielobjekt {
      */
     public boolean hasKollisionMit(Spielobjekt that){
         boolean kollisionXrechts = this.getPosX()+this.getBreite() >= that.getPosX();
-        boolean kollisionXlinks = that.getPosX()+that.getBreite()>= this.getPosX();
+        boolean kollisionXlinks = that.getPosX()+that.getBreite() >= this.getPosX();
         boolean kollisionYoben = this.getPosY()+this.getHoehe() >= that.getPosY();
         boolean kollisionYunten = that.getPosY()+that.getHoehe() >= this.getPosY();
 

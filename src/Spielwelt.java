@@ -89,7 +89,7 @@ public class Spielwelt implements ISpielWelt {
      * Prüft Kollisionen zwischen allen Monkey und Schüssen auf dem Spielfeld.
      * Falls eine Kollision auftritt wird die onKollision Methode von schuss und monkey aufgerufen.
      */
-    private void pruefeKollisionenMonkeySchuss(){
+    public void pruefeKollisionenMonkeySchuss(){
         for (Monkey monkey : monkeys) {
             for (Schuss schuss : schuesse) {
                 if (monkey.hasKollisionMit(schuss)) {
@@ -98,14 +98,13 @@ public class Spielwelt implements ISpielWelt {
                 }
             }
         }
-
     }
 
     /**
      * Prüft Kollisionen zwischen dem Meteorit und allen Schüssen auf dem Spielfeld.
      * Falls eine Kollision auftritt wird die onKollision Methode von schuss aufgerufen.
      */
-    private void pruefeKollisionenMeteoritSchuss(){
+    public void pruefeKollisionenMeteoritSchuss(){
         for (Schuss schuss : schuesse){
             if(meteorit.hasKollisionMit(schuss)){
                 schuss.onKollisionSchuss();
@@ -148,6 +147,7 @@ public class Spielwelt implements ISpielWelt {
      */
     public void erzeugeSchuss() {
         int positionsausgleich = (raumschiff.breite / 2) - (Schuss.BREITESCHUSS / 2);
+
         if (schuesse.size() == 0) {
             addSchuss(new Schuss(this, raumschiff.getPosX() + positionsausgleich, raumschiff.getPosY()));
         } else {

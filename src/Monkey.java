@@ -2,8 +2,11 @@ import processing.core.PApplet;
 
 public abstract class Monkey extends Spielobjekt {
 
+    public static final int BREITE = 30;
+    public static final int HOEHE = 30;
+
     public Monkey(ISpielWelt welt,int posX, int posY) {
-        super(welt,posX, posY, 30, 30);
+        super(welt,posX, posY, HOEHE, BREITE);
     }
 
     /**
@@ -28,6 +31,4 @@ public abstract class Monkey extends Spielobjekt {
         welt.removeMonkey(this);
 
     }
-
-
 }

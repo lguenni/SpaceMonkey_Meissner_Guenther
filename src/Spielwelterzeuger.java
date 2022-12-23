@@ -24,15 +24,12 @@ public class Spielwelterzeuger {
      */
     public void createMonkeys(int affenProZeile){
         int widthCanvas = 600;
-        int abstand = (widthCanvas-14) / (affenProZeile); //width-Affenbreite
+        int abstand = (widthCanvas - Monkey.BREITE) / (affenProZeile); //width-Affenbreite
 
         for (int i = 1; i < affenProZeile + 1; i++) {
             welt.addMonkey(new MarsMonkey(welt,i * abstand, 50));
             welt.addMonkey(new MoonMonkey(welt,i * abstand, 150));
             welt.addMonkey(new StarMonkey(welt,i * abstand, 250));
         }
-
-
-
     }
 }

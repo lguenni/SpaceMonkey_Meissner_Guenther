@@ -133,7 +133,7 @@ public class Spiel extends PApplet {
         }else if (getSpielzustand() == Spielzustand.SPIEL_VERLOREN) {
             ausgabeText = "Oh nein, die Monkeys haben die Macht übernommen!";
             textXpos = 50;
-            textYpos = 300;
+            textYpos = 350;
             textSize = 20;
         }
         this.pushStyle();

@@ -18,46 +18,46 @@ public abstract class Spielobjekt {
     }
 
     /**
-     * Setzt X-Koordinate des Objektes
-     * @param posX X-Koordinate
+     * Setzt X-Koordinate des Objektes.
+     * @param posX X-Koordinate.
      */
     public void setPosX(int posX) {
         this.posX = posX;
     }
 
     /**
-     * Setzt Y-Koordinate des Objektes
-     * @param posY Y-Koordinate
+     * Setzt Y-Koordinate des Objektes.
+     * @param posY Y-Koordinate.
      */
     public void setPosY(int posY) {
         this.posY = posY;
     }
 
-    /** Gibt X-Koordinate zurück */
+    /** Gibt X-Koordinate zurück. */
 
     public int getPosX() {
         return posX;
     }
 
-    /** Gibt Y-Koordinate zurück */
+    /** Gibt Y-Koordinate zurück. */
     public int getPosY() {
         return posY;
     }
 
-    /** Gibt Höhe des Objektes zurück*/
+    /** Gibt Höhe des Objektes zurück. */
     public int getHoehe() {
         return hoehe;
     }
 
-    /** Gibt Breite des Objektes zurück*/
+    /** Gibt Breite des Objektes zurück. */
     public int getBreite() {
         return breite;
     }
 
     /**
      * Frägt die Kollisionsbedingungen ab.
-     * @param that Das andere Objekt, mit welchem eine Kollision möglich ist
-     * @return true bei Kollision, false bei keiner Kollision
+     * @param that Das andere Objekt, mit welchem eine Kollision möglich ist.
+     * @return true bei Kollision, false bei keiner Kollision.
      */
     public boolean hasKollisionMit(Spielobjekt that){
         boolean kollisionXrechts = this.getPosX()+this.getBreite() >= that.getPosX();
@@ -71,6 +71,13 @@ public abstract class Spielobjekt {
         return kollisionX && kollisionY;
     }
 
+    /**
+     * Lädt in einer Schleife alle Frames mit der loadImage Methode.
+     * @param app Instanz von PApplet.
+     * @param template String Variable mit Namen der Frames.
+     * @param n Anzahl der Frames die geladen werden sollen.
+     * @return PImages Array mit allen Frames.
+     */
     protected PImage[] loadFrames(PApplet app, String template, int n) {
         PImage[] frames = new PImage[n];
         for (int i = 0; i < n; i++) {

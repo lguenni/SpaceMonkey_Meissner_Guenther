@@ -15,6 +15,7 @@ public class Spielwelt implements ISpielWelt {
     private List<Schuss> schuesse;
     private List<Spielobjekt> zuLoeschen = new ArrayList<>();
     Apollo404 raumschiff;
+    Meteorit meteorit;
 
 
     public Spielwelt() {
@@ -51,6 +52,7 @@ public class Spielwelt implements ISpielWelt {
     public void bewege() {
         bewegeMonkeys();
         bewegeSchuesse();
+        meteorit.bewege();
         pruefeKollosionen();
     }
 
@@ -76,12 +78,26 @@ public class Spielwelt implements ISpielWelt {
      * Prüft Kollissionen von jedem aktiven Schuss mit jedem aktiven Monkey
      */
     private void pruefeKollosionen() {
+        pruefeKollisionenMeteoritSchuss();
+        pruefeKollisionenMonkeySchuss();
+    }
+
+    private void pruefeKollisionenMonkeySchuss(){
         for (Monkey monkey : monkeys) {
             for (Schuss schuss : schuesse) {
                 if (monkey.hasKollisionMit(schuss)) {
                     schuss.onKollisionSchuss();
                     monkey.onKollisionMonkey();
                 }
+            }
+        }
+
+    }
+
+    private void pruefeKollisionenMeteoritSchuss(){
+        for (Schuss schuss : schuesse){
+            if(meteorit.hasKollisionMit(schuss)){
+                schuss.onKollisionSchuss();
             }
         }
     }
@@ -97,6 +113,7 @@ public class Spielwelt implements ISpielWelt {
             schuss.zeichne(app);
         }
         raumschiff.zeichne(app);
+        meteorit.zeichne(app);
     }
 
     /**

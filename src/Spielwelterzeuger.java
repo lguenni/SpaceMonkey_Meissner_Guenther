@@ -13,6 +13,7 @@ public class Spielwelterzeuger {
     public void initSpielwelt(){
         createMonkeys(8);
         welt.raumschiff = new Apollo404(welt,300, 650);
+        welt.meteorit = new Meteorit(welt,0,550);
     }
 
 

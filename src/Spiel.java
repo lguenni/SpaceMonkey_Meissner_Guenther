@@ -92,16 +92,16 @@ public class Spiel extends PApplet {
 
     /**
      * Gibt den Spielzustand in dem sich das aktuelle Spiel befindet zurück
-     * @return aktueller Spielzustand
+     * @return aktueller Spielzustand.
      */
     public Spielzustand getSpielzustand() {
         return zustand;
     }
 
     /**
-     * Setzt den aktuellen Spielzustand auf Läuft wenn mehr als 0 Affen vorhanden sind
-     * Setzt den aktuellen Spielzustand auf veloren wenn mehr als 3min vergangen sind
-     * Setzt den aktuellen Spielzustand auf gewonnen wenn keine Affen mehr vorhanden sind
+     * Setzt den aktuellen Spielzustand auf Läuft wenn mehr als 0 Affen vorhanden sind.
+     * Setzt den aktuellen Spielzustand auf veloren wenn mehr als 3min vergangen sind.
+     * Setzt den aktuellen Spielzustand auf gewonnen wenn keine Affen mehr vorhanden sind.
      */
     public void pruefeSpielzustand() {
         if (welt.pruefeAnzahlMonkeys() == 0) {
@@ -116,9 +116,9 @@ public class Spiel extends PApplet {
     }
 
     /**
-     * Zeichnet den aktuellen Spielzustand auf das Spielfeld
-     * Falls das Spiel gerade läuft wird die Anzahl der verbleibenden Monkyes angezeigt
-     * Die verbleibende Spielzeit wird in Sekunden angezeigt
+     * Zeichnet den aktuellen Spielzustand auf das Spielfeld.
+     * Falls das Spiel gerade läuft wird die Anzahl der verbleibenden Monkyes angezeigt.
+     * Die verbleibende Spielzeit wird in Sekunden angezeigt.
      */
     public void zeichneSpielzustand(){
         pruefeSpielzustand();

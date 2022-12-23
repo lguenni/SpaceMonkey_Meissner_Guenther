@@ -23,7 +23,7 @@ public class StarMonkeyTest {
     }
 
     @Test
-    public void onKollisionStarMonkey() {
+    public void testOnKollisionStarMonkey() {
         StarMonkey testStarMonkey = new StarMonkey(testwelt,300,300);
         testwelt.addMonkey(testStarMonkey);
         testStarMonkey.onKollisionMonkey();

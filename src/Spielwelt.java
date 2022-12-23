@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Spielwelt implements ISpielWelt {
 
-    private static final int SPIELZEIT_MAX = 1*60*1000; //eine Minute
+    public static final int SPIELZEIT_MAX = 1*60*1000; //eine Minute
     private final long timestamp_start;
 
     private int breite;

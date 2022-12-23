@@ -9,7 +9,7 @@ public class SpielwelterzeugerTest {
     Spielwelterzeuger testerzeuger = new Spielwelterzeuger(testwelt);
 
     @Test
-    public void initSpielwelt() {
+    public void testInitSpielwelt() {
         testerzeuger.initSpielwelt();
         Assert.assertEquals(3*8, testwelt.getAnzahlMonkeys());
         Assert.assertNotEquals(null, testwelt.raumschiff);
@@ -17,7 +17,7 @@ public class SpielwelterzeugerTest {
     }
 
     @Test
-    public void createMonkeys() {
+    public void testCreateMonkeys() {
         testerzeuger.createMonkeys(10);
         Assert.assertEquals(3*10, testwelt.getAnzahlMonkeys());
     }

@@ -24,7 +24,7 @@ public class MoonMonkeyTest {
     }
 
     @Test
-    public void onKollisionMoonMonkey() {
+    public void testOnKollisionMoonMonkey() {
         MoonMonkey testMoonMonkey = new MoonMonkey(testwelt,300,300);
         testwelt.addMonkey(testMoonMonkey);
         testMoonMonkey.onKollisionMonkey();

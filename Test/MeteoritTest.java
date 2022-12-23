@@ -7,7 +7,7 @@ public class MeteoritTest {
     Spielwelt testwelt = new Spielwelt();
 
     @Test
-    public void randomGeschwindigkeitMeteorit() {
+    public void testRandomGeschwindigkeitMeteorit() {
         Meteorit testMeteorit = new Meteorit(testwelt, 300, 300);
         int hoechsteGeschwindigkeit=0;
         int niedrigsteGeschwindigkeit=10;
@@ -30,7 +30,7 @@ public class MeteoritTest {
     }
 
     @Test
-    public void randomHoeheMeteorit() {
+    public void testRandomHoeheMeteorit() {
         Meteorit testMeteorit = new Meteorit(testwelt, 300, 300);
         int hoechsteHoehe=0;
         int niedrigsteHoehe=1000;
@@ -51,7 +51,7 @@ public class MeteoritTest {
     }
 
     @Test
-    public void bewege() {
+    public void testBewege() {
         Meteorit testMeteorit = new Meteorit(testwelt, 300,300);
         testMeteorit.geschwindigkeit= 3;
         testMeteorit.bewege();

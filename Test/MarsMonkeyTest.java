@@ -34,7 +34,7 @@ public class MarsMonkeyTest extends PApplet{
     }
 
     @Test
-    public void onKollisionMarsMonkey() {
+    public void testOnKollisionMarsMonkey() {
         MarsMonkey testMarsMonkey = new MarsMonkey(testwelt,300,300);
         testwelt.addMonkey(testMarsMonkey);
         testMarsMonkey.onKollisionMonkey();

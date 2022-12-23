@@ -8,14 +8,14 @@ public class SchussTest {
     Spielwelt testwelt = new Spielwelt();
 
     @Test
-    public void bewege() {
+    public void testBewege() {
         Schuss testSchuss =  new Schuss(testwelt,300,300);
         testSchuss.bewege();
         Assert.assertEquals(300-testSchuss.GESCHWINDIGKEIT,testSchuss.posY);
     }
 
     @Test
-    public void onKollisionSchuss() {
+    public void testOnKollisionSchuss() {
         Schuss testSchuss =  new Schuss(testwelt,300,300);
         testwelt.addSchuss(testSchuss);
         testSchuss.onKollisionSchuss();

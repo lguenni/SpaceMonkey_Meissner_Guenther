@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Spielwelt implements ISpielWelt {
 
-    private static final int SPIELZEIT_MAX = 1*60*1000;
+    private static final int SPIELZEIT_MAX = 1*60*1000; //eine Minute
     private final long timestamp_start;
 
     private int breite;
@@ -24,22 +24,25 @@ public class Spielwelt implements ISpielWelt {
         timestamp_start = System.currentTimeMillis();
     }
 
+    /**
+     * Berechnet die verbleibende Spielzeit mit timestamp und SPIELZEIT_MAX.
+     * @return verbleibende Spielzeit als int.
+     */
     public int getVerbleibendeZeit(){
         return SPIELZEIT_MAX - (int) (System.currentTimeMillis() - timestamp_start);
     }
 
     /**
-     * Fügt der Liste monkeys einen Affe vom Typ Monkey hinzu
-     * @param monkey ist der Affe der hinzugefügt
+     * Fügt der Liste monkeys einen Affe vom Typ Monkey hinzu.
+     * @param monkey ist der Affe der hinzugefügt.
      */
     public void addMonkey(Monkey monkey) {
         this.monkeys.add(monkey);
     }
 
     /**
-     * Fügt der Liste schuesse einen Schuss vom Typ Schuss hinzu
-     *
-     * @param schuss ist der Schuss der hinzugefügt wird
+     * Fügt der Liste schuesse einen Schuss vom Typ Schuss hinzu.
+     * @param schuss ist der Schuss der hinzugefügt wird.
      */
     public void addSchuss(Schuss schuss) {
         this.schuesse.add(schuss);
@@ -47,17 +50,17 @@ public class Spielwelt implements ISpielWelt {
 
 
     /**
-     * Ruft die bewege Methode aller Affen und Schüsse auf
+     * Ruft die bewege Methode aller Affen und Schüsse auf.
      */
     public void bewege() {
         bewegeMonkeys();
         bewegeSchuesse();
         meteorit.bewege();
-        pruefeKollosionen();
+        pruefeKollisionen();
     }
 
     /**
-     * Ruft die bewege Methode aller Schüsse in der Liste schüsse auf
+     * Ruft die bewege Methode aller Schüsse in der Liste schüsse auf.
      */
     private void bewegeSchuesse() {
         for (Schuss schuss : schuesse) {
@@ -66,7 +69,7 @@ public class Spielwelt implements ISpielWelt {
     }
 
     /**
-     * Ruft die bewege Methode aller Affen in der Liste affe auf
+     * Ruft die bewege Methode aller Affen in der Liste affe auf.
      */
     private void bewegeMonkeys() {
         for (Monkey monkey : monkeys) {
@@ -75,13 +78,17 @@ public class Spielwelt implements ISpielWelt {
     }
 
     /**
-     * Prüft Kollissionen von jedem aktiven Schuss mit jedem aktiven Monkey
+     * Ruft alle prüfeKollission Methoden auf.
      */
-    private void pruefeKollosionen() {
+    private void pruefeKollisionen() {
         pruefeKollisionenMeteoritSchuss();
         pruefeKollisionenMonkeySchuss();
     }
 
+    /**
+     * Prüft Kollisionen zwischen allen Monkey und Schüssen auf dem Spielfeld.
+     * Falls eine Kollision auftritt wird die onKollision Methode von schuss und monkey aufgerufen.
+     */
     private void pruefeKollisionenMonkeySchuss(){
         for (Monkey monkey : monkeys) {
             for (Schuss schuss : schuesse) {
@@ -94,6 +101,10 @@ public class Spielwelt implements ISpielWelt {
 
     }
 
+    /**
+     * Prüft Kollisionen zwischen dem Meteorit und allen Schüssen auf dem Spielfeld.
+     * Falls eine Kollision auftritt wird die onKollision Methode von schuss aufgerufen.
+     */
     private void pruefeKollisionenMeteoritSchuss(){
         for (Schuss schuss : schuesse){
             if(meteorit.hasKollisionMit(schuss)){
@@ -103,7 +114,7 @@ public class Spielwelt implements ISpielWelt {
     }
 
     /**
-     * Zeichnet alle Elemente auf dem Spielfeld
+     * Zeichnet alle Elemente auf dem Spielfeld.
      */
     public void zeicheAlles(PApplet app) {
         for (Monkey monkey : monkeys) {
@@ -117,23 +128,23 @@ public class Spielwelt implements ISpielWelt {
     }
 
     /**
-     * Ruft die bewegeNachRechts Methode des Raumschiffs auf
+     * Ruft die bewegeNachRechts Methode des Raumschiffs auf.
      */
     public void bewegeRaumschiffRechts() {
         raumschiff.bewegeNachRechts();
     }
 
     /**
-     * Ruft die bewegeNachLinks Methode des Raumschiffs auf
+     * Ruft die bewegeNachLinks Methode des Raumschiffs auf.
      */
     public void bewegeRaumschiffLinks() {
         raumschiff.bewegeNachLinks();
     }
 
     /**
-     * erzeugt einen Schuss an der aktuellen Position des Raumschiffs;
-     * neuer Schuss kann er erzeugt werden, wenn sich der alte Schuss
-     * unterhalb von der Position 300 befindet
+     * erzeugt einen Schuss an der aktuellen Position des Raumschiffs.
+     * wird dabei mit Positionsausgleich verrechnet.
+     * neuer Schuss kann nur erstellt werden wenn sich letzer Schuss über HOEHESCHUSSABSTAND befindet.
      */
     public void erzeugeSchuss() {
         int positionsausgleich = (raumschiff.breite / 2) - (Schuss.BREITESCHUSS / 2);
@@ -146,11 +157,19 @@ public class Spielwelt implements ISpielWelt {
         }
     }
 
+    /**
+     * Fügt den zu löschenden Schuss der Liste zuLoeschen hinzu.
+     * @param schuss Schuss der gelöscht werden soll.
+     */
     @Override
     public void removeSchuss(Schuss schuss) {
         zuLoeschen.add(schuss);
     }
 
+    /**
+     * Fügt den zu löschenden Monkey der Liste zuLoeschen hinzu.
+     * @param monkey Monkey der gelöscht werden soll.
+     */
     @Override
     public void removeMonkey(Monkey monkey) {
         zuLoeschen.add(monkey);
@@ -158,7 +177,7 @@ public class Spielwelt implements ISpielWelt {
 
 
     /**
-     * Löscht die Elemente die in der Liste "zulöschen" definiert sind aus den Listen "monkeys" und "schüsse"
+     * Löscht die Elemente die in der Liste "zulöschen" definiert sind aus den Listen "monkeys" und "schüsse".
      */
     public void aufraeumen() {
         monkeys.removeAll(zuLoeschen);
@@ -166,8 +185,8 @@ public class Spielwelt implements ISpielWelt {
     }
 
     /**
-     * Prüft die Anzahl der aktiven Monkeys auf dem Spielfeld
-     * @return Anzahl der Monkeys als int-Wert
+     * Prüft die Anzahl der aktiven Monkeys auf dem Spielfeld.
+     * @return Anzahl der Monkeys als int-Wert.
      */
     public int pruefeAnzahlMonkeys(){
         return  monkeys.size();

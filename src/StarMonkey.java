@@ -10,7 +10,7 @@ public class StarMonkey extends Monkey{
     }
 
     /**
-     * Überschreibt die Methode "zeichne" und zeichnet einen StarMonkey
+     * Überschreibt die Methode "zeichne" und zeichnet einen animierten StarMonkey.
      */
     @Override
     public void zeichne(PApplet app) {
@@ -21,6 +21,9 @@ public class StarMonkey extends Monkey{
         app.image(frames[frameIndex], posX, posY, breite, hoehe);
     }
 
+    /**
+     * Lädt die einzelnen Frames des StarMonkeys einmalig.
+     */
     public void loadFrames(PApplet app){
         if (frames == null) {
             this.frames = loadFrames(app,"ressources/StarMonkey/frame-%d.png", 2);

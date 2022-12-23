@@ -104,7 +104,7 @@ public class Spiel extends PApplet {
      * Setzt den aktuellen Spielzustand auf gewonnen wenn keine Affen mehr vorhanden sind.
      */
     public void pruefeSpielzustand() {
-        if (welt.pruefeAnzahlMonkeys() == 0) {
+        if (welt.getAnzahlMonkeys() == 0) {
             this.zustand = Spielzustand.SPIEL_GEWONNEN;
         }
         else if (welt.getVerbleibendeZeit() <= 0){
@@ -123,7 +123,7 @@ public class Spiel extends PApplet {
     public void zeichneSpielzustand(){
         pruefeSpielzustand();
         if (getSpielzustand() == Spielzustand.SPIEL_LAEUFT) {
-            ausgabeText = "Es sind noch " + str(welt.pruefeAnzahlMonkeys()) + " Monkeys zu besiegen";
+            ausgabeText = "Es sind noch " + str(welt.getAnzahlMonkeys()) + " Monkeys zu besiegen";
             textXpos = 20;
             textYpos = 20;
             textSize = 15;

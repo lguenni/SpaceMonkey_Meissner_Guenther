@@ -26,7 +26,7 @@ public class MarsMonkey extends Monkey{
     /**
      * Lädt die Frames des MarsMonkeys einmalig.
      */
-    private void loadFrames(PApplet app) {
+    public void loadFrames(PApplet app) {
         if (frames == null) {
             this.frames = loadFrames(app,"ressources/MarsMonkey/frame-%d.png", 2);
         }

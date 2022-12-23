@@ -188,7 +188,23 @@ public class Spielwelt implements ISpielWelt {
      * Prüft die Anzahl der aktiven Monkeys auf dem Spielfeld.
      * @return Anzahl der Monkeys als int-Wert.
      */
-    public int pruefeAnzahlMonkeys(){
+    public int getAnzahlMonkeys(){
         return  monkeys.size();
+    }
+
+    /**
+     * Prüft die Anzahl der aktiven Schüsse auf dem Spielfeld.
+     * @return Anzahl der Schüsse als int-Wert.
+     */
+    public int getAnzahlSchuesse(){
+        return schuesse.size();
+    }
+
+    /**
+     * Prüft die Anzahl der zu löschenden Objekte auf dem Spielfeld.
+     * @return Anzahl der zu löschenen Objekten als int-Wert.
+     */
+    public int getAnzahlZuLoeschen(){
+        return zuLoeschen.size();
     }
 }

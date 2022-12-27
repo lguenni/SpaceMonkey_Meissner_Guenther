@@ -13,7 +13,7 @@ public class Spiel extends PApplet {
     private int textXpos;
     private int textYpos;
     private int textSize;
-    private int verbleibendeZeit;
+
 
 
     boolean linksGedrueckt = false;

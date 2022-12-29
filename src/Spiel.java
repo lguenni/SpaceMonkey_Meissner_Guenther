@@ -8,12 +8,10 @@ public class Spiel extends PApplet {
     Spielwelterzeuger erzeuger;
     private Spielzustand zustand;
 
-
     private String ausgabeText;
     private int textXpos;
     private int textYpos;
     private int textSize;
-
 
 
     boolean linksGedrueckt = false;
@@ -35,11 +33,11 @@ public class Spiel extends PApplet {
 
     @Override
     public void draw() {
-        this.background(10, 20, 10);
+        welt.zeichneHintergrund(this);
         verarbeiteEingabe();
         zeichneSpielzustand();
         welt.bewege();
-        welt.zeicheAlles(this);
+        welt.zeichneAlles(this);
         welt.aufraeumen();
     }
 

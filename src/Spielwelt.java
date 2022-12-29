@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,8 @@ public class Spielwelt implements ISpielWelt {
 
     private int breite;
     private int hoehe;
+
+    PImage background = null;
 
     private List<Monkey> monkeys;
     private List<Schuss> schuesse;
@@ -115,7 +118,7 @@ public class Spielwelt implements ISpielWelt {
     /**
      * Zeichnet alle Elemente auf dem Spielfeld.
      */
-    public void zeicheAlles(PApplet app) {
+    public void zeichneAlles(PApplet app) {
         for (Monkey monkey : monkeys) {
             monkey.zeichne(app);
         }
@@ -124,6 +127,13 @@ public class Spielwelt implements ISpielWelt {
         }
         raumschiff.zeichne(app);
         meteorit.zeichne(app);
+    }
+
+    public void zeichneHintergrund(PApplet app){
+        if (background == null) {
+            background = app.loadImage("ressources/Background/background4.jpg");
+        }
+        app.background(background);
     }
 
     /**

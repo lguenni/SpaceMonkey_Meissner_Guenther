@@ -3,6 +3,7 @@ import processing.core.PImage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Spielwelt implements ISpielWelt {
 
@@ -129,9 +130,21 @@ public class Spielwelt implements ISpielWelt {
         meteorit.zeichne(app);
     }
 
+    /**
+     * Lädt zufällig einen von zwei ausgewählten Hintergründen in das Spielfeld
+     * Der Hintergrund kann sich während dem Spiel nicht ändern
+     */
     public void zeichneHintergrund(PApplet app){
         if (background == null) {
-            background = app.loadImage("ressources/Background/background4.jpg");
+            Random r = new Random();
+            String path;
+
+            if (r.nextBoolean()) {
+                path = "ressources/Background/background3.jpg";
+            } else {
+                path = "ressources/Background/background4.jpg";
+            }
+            background = app.loadImage(path);
         }
         app.background(background);
     }
